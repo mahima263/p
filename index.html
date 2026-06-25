@@ -281,6 +281,9 @@ img{display:block;max-width:100%}
 .fm-legend small{display:block;color:var(--muted);font-size:.86rem;line-height:1.4;margin-top:1px}
 .fm-note{margin-top:18px;font-size:.96rem;line-height:1.62;color:var(--muted)}
 .fm-note b{color:var(--rust);font-weight:600}
+.venn-c{opacity:0;transform:scale(.82);transform-box:fill-box;transform-origin:center;transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+.venn.in .venn-c{opacity:1;transform:scale(1)}
+.modal-card .mbody .msh{font-family:'Fraunces';color:var(--rust);font-weight:600;font-size:1.04rem;margin-top:20px}
 @media(min-width:760px){.fundmap{grid-template-columns:.92fr 1.08fr;gap:38px;padding:38px 40px}}
 
 /* Awardees */
@@ -680,19 +683,22 @@ img{display:block;max-width:100%}
     </div>
     <div class="fundmap" data-aos="fade-up">
       <div class="fm-viz">
-        <svg viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Goal ₹2.5 Cr containing ₹1 Cr raised, containing ₹20 L utilised">
-          <!-- Goal -->
-          <circle cx="180" cy="175" r="150" fill="#FCE2C5" fill-opacity=".45" stroke="#C9943A" stroke-width="2.5"/>
-          <text x="180" y="58" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-size="27" font-weight="600" fill="#421E18">₹2.5 Cr</text>
-          <text x="180" y="79" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="700" letter-spacing="2" fill="#AB4531">GOAL</text>
-          <!-- Raised -->
-          <circle cx="180" cy="232" r="93" fill="#AB4531" stroke="#8E3826" stroke-width="2"/>
-          <text x="180" y="172" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-size="23" font-weight="600" fill="#fff">₹1 Cr</text>
-          <text x="180" y="190" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" font-weight="700" letter-spacing="2" fill="#FCE2C5">RAISED</text>
-          <!-- Utilised -->
-          <circle cx="180" cy="284" r="41" fill="#421E18" stroke="#C9943A" stroke-width="2"/>
-          <text x="180" y="281" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-size="16" font-weight="600" fill="#fff">₹20 L</text>
-          <text x="180" y="297" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" font-weight="700" letter-spacing="1.5" fill="#C9943A">UTILISED</text>
+        <svg class="venn" id="venn" viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Goal ₹2.5 Cr containing ₹1 Cr raised, containing ₹20 L utilised">
+          <g class="venn-c" style="transition-delay:0s">
+            <circle cx="180" cy="175" r="150" fill="#FCE2C5" fill-opacity=".45" stroke="#C9943A" stroke-width="2.5"/>
+            <text x="180" y="58" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-size="27" font-weight="600" fill="#421E18">₹2.5 Cr</text>
+            <text x="180" y="79" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="700" letter-spacing="2" fill="#AB4531">GOAL</text>
+          </g>
+          <g class="venn-c" style="transition-delay:.22s">
+            <circle cx="180" cy="232" r="93" fill="#AB4531" stroke="#8E3826" stroke-width="2"/>
+            <text x="180" y="172" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-size="23" font-weight="600" fill="#fff">₹1 Cr</text>
+            <text x="180" y="190" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" font-weight="700" letter-spacing="2" fill="#FCE2C5">RAISED</text>
+          </g>
+          <g class="venn-c" style="transition-delay:.44s">
+            <circle cx="180" cy="284" r="41" fill="#421E18" stroke="#C9943A" stroke-width="2"/>
+            <text x="180" y="281" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-size="16" font-weight="600" fill="#fff">₹20 L</text>
+            <text x="180" y="297" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" font-weight="700" letter-spacing="1.5" fill="#C9943A">UTILISED</text>
+          </g>
         </svg>
       </div>
       <div class="fm-copy">
@@ -756,11 +762,19 @@ img{display:block;max-width:100%}
             <span class="area">Computational &amp; Medical Imaging</span>
             <p>During my doctoral research, I focused on developing imaging algorithms for oil and gas exploration. Inspired by its potential, I have extended the same core algorithmic principles to the field of medical imaging. This approach offers high-resolution imaging at minimal cost, while maintaining safety, making it particularly suitable for remote and underserved areas.</p>
             <p>I am deeply honored and grateful to have been recognized by the esteemed IITK Alumni Class of 1965 with the Pioneer and Innovation Award. This recognition is not just an award for me — it is a source of motivation and a spark to translate this innovation into a practical, impactful product that can benefit middle-class communities in India and beyond.</p>
+            <a class="read" data-story="vikas">Read full story <span class="arrow">→</span></a>
           </div>
         </article>
         <article class="card">
-          <div class="ph"><span class="badge">Student Awardee</span><img src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=700&q=80" alt=""></div>
-          <div class="cb"><h3>More stories soon</h3><div class="role">Student Awardees</div><span class="area">Coming Soon</span><p>Further awardee stories will be shared here as the Pioneering Research &amp; Innovation Award recognises new pioneers each year.</p></div>
+          <div class="ph"><span class="badge">Student Awardee · 2026</span><img src="images/PIyush K.jpeg" alt="Piyush Kumar" onerror="this.src='https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?auto=format&fit=crop&w=700&q=80'"></div>
+          <div class="cb">
+            <h3>Piyush Kumar</h3>
+            <div class="role">PhD Scholar · Dept. of BSBE, IIT Kanpur</div>
+            <span class="area">Early Cancer Diagnostics</span>
+            <p>Receiving the Pioneering Research and Innovation Award has been a massive turning point for my journey. It officially put my work on early, non-invasive cancer diagnostics on the global map, giving it the visibility needed to drive real change. This platform has allowed me to share our NanoGPS-enabled technology with a much wider audience of scientists, investors, and entrepreneurs.</p>
+            <p>Most importantly, the financial backing ensures I can secure the essential lab materials required to rapidly advance my startup's mission. This support bridges the gap, taking this life-saving research out of the academic lab and into the broader Indian healthcare system.</p>
+            <a class="read" data-story="piyush">Read full story <span class="arrow">→</span></a>
+          </div>
         </article>
       </div>
       <div class="track2" id="trackFaculty" data-track="faculty" hidden>
@@ -772,16 +786,18 @@ img{display:block;max-width:100%}
             <span class="area">AI &amp; Computer Vision</span>
             <p>It is a great honor to be the first recipient of the Pioneering Research and Innovation Award, IIT Kanpur 2025. In my Perception and Intelligence Lab (PIL), we develop AI and Computer Vision technologies for healthcare, robotics, intelligent sensing, and real-world decision-making systems. My research spans autonomous systems, multimodal learning, and AI-driven solutions for societal challenges.</p>
             <p>This award instils the trust in the lab to continue to pursue high-impact research and nurture the next generation of AI innovators among students. I sincerely thank IIT Kanpur for this recognition and express my deep gratitude to the whole batch for their generous support of AI research and education.</p>
+            <a class="read" data-story="tushar">Read full story <span class="arrow">→</span></a>
           </div>
         </article>
         <article class="card">
-          <div class="ph"><span class="badge">Faculty Awardee · 2026</span><img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=700&q=80" alt="Dr. Raghvendra Kumar Chaudhary"></div>
+          <div class="ph"><span class="badge">Faculty Awardee · 2026</span><img src="images/Dr. Raghvendra Kuma.jpeg" alt="Dr. Raghvendra Kumar Chaudhary"></div>
           <div class="cb">
             <h3>Dr. Raghvendra Kumar Chaudhary</h3>
             <div class="role">Associate Professor · Electrical Engineering</div>
             <span class="area">Antenna Systems &amp; Applied Electromagnetics</span>
             <p>My research focuses on developing advanced antenna systems and engineered electromagnetic structures for next-generation unmanned aerial vehicles (UAVs) and aircraft, where reliable wireless communication, low electromagnetic observability, and seamless platform integration are essential.</p>
             <p>I sincerely thank the 1965 Batch alumni for their generous support through the Pioneering Research and Innovation Award. This recognition encourages our pursuit of impactful research and innovation in advanced electromagnetic and antenna technologies for next-generation UAV and defence applications.</p>
+            <a class="read" data-story="raghav">Read full story <span class="arrow">→</span></a>
           </div>
         </article>
       </div>
@@ -828,6 +844,21 @@ img{display:block;max-width:100%}
     </div>
   </div>
 </section>
+
+<!-- STORY MODAL -->
+<div class="modal" id="storyModal" aria-hidden="true">
+  <div class="modal-card" role="dialog" aria-modal="true">
+    <button class="modal-close" id="storyClose" aria-label="Close">×</button>
+    <div class="top">
+      <div class="mbadge" id="msBadge"></div>
+      <h3 id="msName"></h3>
+      <div class="mrole" id="msRole"></div>
+      <span class="marea" id="msArea"></span>
+    </div>
+    <div class="mdivider"></div>
+    <div class="mbody" id="msBody"></div>
+  </div>
+</div>
 
 <!-- FOOTER -->
 <footer class="foot">
@@ -885,6 +916,10 @@ img{display:block;max-width:100%}
   /* Counters */
   const cObs=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('[data-count]').forEach(el=>animateNumber(el,parseInt(el.dataset.count,10),1600));cObs.unobserve(e.target);}});},{threshold:.4});
   document.querySelectorAll('.statband').forEach(c=>cObs.observe(c));
+
+  /* Thermometer fill */
+  /* Venn reveal */
+  (function(){const v=document.getElementById('venn');if(!v)return;const o=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){v.classList.add('in');o.disconnect();}});},{threshold:.3});o.observe(v);})();
 
   /* Multi-step donation form */
   (function(){
@@ -1000,6 +1035,58 @@ img{display:block;max-width:100%}
     vshow.addEventListener('mouseleave',start);
     start();
   })();
+  /* Awardee full stories + modal */
+  const STORIES={
+    vikas:{badge:'Student Awardee \u00b7 2025',name:'Vikas Vats',role:'PhD \u00b7 IIT Kanpur',area:'Computational & Medical Imaging',body:`
+      <p>Dear Esteemed Class of 1965,</p>
+      <p>I hope this message finds you well.</p>
+      <p>My name is Vikas, a recent PhD graduate from IIT Kanpur. During my doctoral research, I focused on developing imaging algorithms for oil and gas exploration. Inspired by its potential, I have extended the same core algorithmic principles to the field of medical imaging. This approach offers high-resolution imaging at minimal cost, while maintaining safety, making it particularly suitable for remote and underserved areas.</p>
+      <p>I am deeply honored and grateful to have been recognized by the esteemed IITK Alumni Class of 1965 with the Pioneer and Innovation Award. This recognition is not just an award for me \u2014 it is a source of motivation and a spark to translate this innovation into a practical, impactful product that can benefit middle-class communities in India and beyond.</p>
+      <p>As I embark on this journey, I humbly seek your guidance and support. Your vast experience and insights into emerging technologies would mean a great deal to me, especially at this crucial stage of development. I would be grateful for an opportunity to connect and explore potential avenues of technical mentorship and collaboration.</p>
+      <p>I look forward to keeping you updated on the progress. Your continued encouragement and advice will truly help shape its success.</p>
+      <p>Thank you once again for your trust and recognition.</p>
+      <p>Warm regards,<br>Vikas Vats, PhD, IIT Kanpur</p>`},
+    piyush:{badge:'Student Awardee \u00b7 2026',name:'Piyush Kumar',role:'PhD Scholar \u00b7 Dept. of BSBE, IIT Kanpur',area:'Early Cancer Diagnostics',body:`
+      <p class="msh">Educational Background</p>
+      <p>Currently I am pursuing Ph.D. from Department of Biological Sciences and Bioengineering, IIT Kanpur with a CPI of 9.04. I have submitted given open seminar and I'll be submitting a thesis in the next 10 days. I have done post-graduation M. Tech. in Biochemical Engineering from IIT (BHU) Varanasi (2017-2019) with CGPA of 8.34. Before that, I have done graduation degree in B.E. in Biotechnology from University Institute of Engineering and Technology, Panjab University, Chandigarh (2013-2017) with a CGPA of 7.57.</p>
+      <p class="msh">Family Background and Home Town</p>
+      <p>My native hometown is Unnao, Uttar Pradesh. I belong to a middle class family of 6 members. My father is retired from a government job of U.T. administration, Chandigarh. My mother is a homemaker. I am married and my spouse is also pursuing Ph.D. degree. I have two younger sisters who are currently studying.</p>
+      <p class="msh">Awards and Recognition</p>
+      <p>Merck Life Sciences Best Poster Presentation Award in Regenerative Medicine for poster titled "Multiplexed paper-based electrochemical LDH biosensor: A high throughput screening tool for anticancer drug candidates" in PAN-IIT Meeting 2024 and Conference on Engineering in Medicine organized by Department of Biological Sciences and Bioengineering, Indian Institute of Technology Kanpur on 6-8th December 2024.</p>
+      <p class="msh">Extracurricular Activities</p>
+      <p>Represented IITK at Inter IIT Tech meet 13.0 held at IIT Bombay in December 2024.</p>
+      <p class="msh">Dreams and Aspirations</p>
+      <p>I aspire to be a scientist who not only innovates but also inspires a scientific mindset in the next generation. I am deeply motivated to address the critical challenges patients face in the Indian healthcare sector. I dream of a society where no one suffers simply because a disease wasn't diagnosed in time. To help solve this, I focused my PhD research on creating platforms for early disease detection. To fulfill this dream and translate my research into a reality, I founded Vitalvanguard Medical Technologies to build affordable diagnostic solutions for complex diseases like Cancer.</p>
+      <p class="msh">Journey to pursue IITK</p>
+      <p>It has been a great journey coming to IIT Kanpur. It has taught me not only technical skills but also life lessons, which are the most valuable takeaways of my time here. IIT Kanpur has a brilliant research community and incredible infrastructure to support its researchers. I feel fortunate not to have faced any major struggles during my PhD; whatever small hurdles arose were easily taken care of with the help of my thesis supervisor and the BSBE department. The ecosystem here is truly commendable, from the unprecedented support for student startups to the generous amount of fellowships and opportunities available.</p>
+      <p class="msh">Impact of the Award</p>
+      <p>Receiving the Pioneering Research and Innovation Award has been a massive turning point for my journey. It officially put my work on early, non-invasive cancer diagnostics on the global map, giving it the visibility needed to drive real change. This platform has allowed me to share our NanoGPS-enabled technology with a much wider audience of scientists, investors, and entrepreneurs. Most importantly, the financial backing ensures I can secure the essential lab materials required to rapidly advance my startup's mission. This support bridges the gap, taking this life-saving research out of the academic lab and into the broader Indian healthcare system.</p>
+      <p class="msh">Gratitude</p>
+      <p>Dear Members of the Pioneer Batch (Class of 1965), I am deeply honored to be a recipient of the Pioneering Research and Innovation Award. As a PhD student at IIT Kanpur working on non-invasive early cancer diagnostic solutions, this recognition means more to me than words can fully express. Your generous support has not only validated the years of effort and perseverance that go into doctoral research, but has also given me the confidence to dream bigger and push the boundaries of what is possible. Knowing that distinguished alumni like yourselves believe in the work we are doing is truly humbling and deeply motivating. This award also serves as a powerful reminder of the importance of giving back \u2014 a value your batch has exemplified so beautifully through this initiative. It inspires me to carry that spirit forward, and one day contribute to the next generation of researchers and innovators in whatever way I can. Thank you for making a tangible difference in the lives of students like me. Your legacy through this award is not just financial \u2014 it is a source of strength, purpose, and inspiration.</p>
+      <p>With heartfelt gratitude,<br>Piyush Kumar, PhD Scholar, Department of BSBE, IIT Kanpur</p>`},
+    tushar:{badge:'Faculty Awardee \u00b7 2025',name:'Tushar Sandhan',role:'Faculty \u00b7 IIT Kanpur',area:'AI & Computer Vision',body:`
+      <p>It is a great honor to be the first recipient of the Pioneering Research and Innovation Award, IIT Kanpur 2025. In my Perception and Intelligence Lab (PIL), we develop AI and Computer Vision technologies for healthcare, robotics, intelligent sensing, and real-world decision-making systems. My research spans autonomous systems, multimodal learning, and AI-driven solutions for societal challenges.</p>
+      <p>This award instils the trust in the lab to continue to pursue high-impact research and nurture the next generation of AI innovators among students. I sincerely thank IIT Kanpur for this recognition and express my deep gratitude to the whole batch for their generous support of AI research and education. This joint vision will inspire meaningful advances in technology for research and societal benefits.</p>
+      <p>\u2014 Tushar Sandhan</p>`},
+    raghav:{badge:'Faculty Awardee \u00b7 2026',name:'Dr. Raghvendra Kumar Chaudhary',role:'Associate Professor \u00b7 Electrical Engineering',area:'Antenna Systems & Applied Electromagnetics',body:`
+      <p>My research focuses on developing advanced antenna systems and engineered electromagnetic structures for next-generation unmanned aerial vehicles (UAVs) and aircraft, where reliable wireless communication, low electromagnetic observability, and seamless platform integration are essential. I have established innovative designs of different antenna systems that integrate metamaterials, frequency selective surfaces (FSS), dielectric resonators, and metasurfaces to simultaneously optimise impedance bandwidth, radiation efficiency, mutual coupling, and radar cross-section (RCS), enabling compact, multifunctional, and stealth-compatible RF systems for airborne platforms.</p>
+      <p>My work on FSS-integrated MIMO antennas demonstrated simultaneous enhancement of isolation and reduction of RCS without compromising antenna performance, while cavity-backed dielectric resonator antennas achieved wide impedance bandwidth, circular polarization, high radiation efficiency, and low electromagnetic visibility. These technologies provide practical solutions for stealth-compatible communication systems and multifunctional RF platforms.</p>
+      <p>The translational impact of this research is reflected in the successful completion of a DRDO-sponsored project on conformal wideband dielectric resonator antennas, experimentally validated by the lab, and the ongoing collaboration with the DEAL DRDO, LRDE DRDO and ADE DRDO on different stealth/high-performance antennas for airborne platforms. By integrating full-wave computational modelling and experimental validation, my research has advanced indigenous RF technologies for strategic defence applications while strengthening IIT Kanpur's leadership in antenna engineering and applied electromagnetics.</p>
+      <p>I sincerely thank the 1965 Batch alumni for their generous support through the Pioneering Research and Innovation Award. This recognition encourages our pursuit of impactful research and innovation in advanced electromagnetic and antenna technologies for next-generation UAV and defence applications.</p>
+      <p>Best regards,<br>Dr. Raghvendra Kumar Chaudhary<br>Associate Professor, ACES 325A, Electrical Engineering, Indian Institute of Technology Kanpur</p>`}
+  };
+  (function(){
+    const modal=document.getElementById('storyModal');if(!modal)return;
+    const body=document.getElementById('msBody');
+    const set=(id,v)=>{document.getElementById(id).textContent=v;};
+    const open=key=>{const st=STORIES[key];if(!st)return;set('msBadge',st.badge);set('msName',st.name);set('msRole',st.role);set('msArea',st.area);body.innerHTML=st.body;modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';modal.querySelector('.modal-card').scrollTop=0;};
+    const close=()=>{modal.classList.remove('open');modal.setAttribute('aria-hidden','true');document.body.style.overflow='';};
+    document.querySelectorAll('.read[data-story]').forEach(b=>b.addEventListener('click',()=>open(b.dataset.story)));
+    document.getElementById('storyClose').addEventListener('click',close);
+    modal.addEventListener('click',e=>{if(e.target===modal)close();});
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))close();});
+  })();
+
   /* FAQ accordion */
   document.querySelectorAll('.faq .qbtn').forEach(btn=>btn.addEventListener('click',()=>{const f=btn.parentElement;const open=f.classList.contains('open');document.querySelectorAll('.faq').forEach(x=>x.classList.remove('open'));if(!open)f.classList.add('open');}));
 </script>

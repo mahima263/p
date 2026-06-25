@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Funding Diagram — More Directions</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--maroon:#421E18;--rust:#AB4531;--gold:#C9943A;--gold-deep:#B07E2C;--champagne:#FCE2C5;--cream:#FBF7F1;--cream-2:#F4EADD;--line:rgba(66,30,24,.12);--muted:rgba(42,20,16,.6)}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',sans-serif;background:var(--cream-2);color:var(--maroon);padding:34px 18px 70px;line-height:1.6}
+  .wrap{max-width:920px;margin:0 auto}
+  h1{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(1.6rem,4vw,2.2rem)}
+  .sub{color:var(--muted);margin-top:6px;font-size:1rem;max-width:62ch}
+  .stack{display:flex;flex-direction:column;gap:22px;margin-top:28px}
+  .opt{background:var(--cream);border:1px solid var(--line);border-radius:20px;padding:26px 26px 22px;box-shadow:0 26px 56px -38px rgba(66,30,24,.5)}
+  .tag{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--rust);margin-bottom:4px}
+  .opt h2{font-family:'Fraunces',serif;font-weight:600;font-size:1.3rem;color:var(--maroon)}
+  .opt .desc{font-size:.9rem;color:var(--muted);margin-bottom:10px}
+  .opt svg{width:100%;height:auto;max-width:600px;display:block;margin:6px auto 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Funding diagram — more directions</h1>
+  <p class="sub">Same story: <b>₹2.5 Cr Goal</b>, <b>₹1 Cr Raised</b> (40%), <b>₹20 L Utilised</b> (8% of goal). Four fresh, thematic ideas.</p>
+  <div class="stack">
+
+    <!-- I: Diamond-fill (Diamond Jubilee tie-in) -->
+    <div class="opt">
+      <span class="tag">Option I</span>
+      <h2>Diamond fill — Jubilee tie-in</h2>
+      <p class="desc">A diamond (nod to the Class of 1965 Diamond Jubilee) that fills to the raised level, with the utilised band at its base.</p>
+      <svg viewBox="0 0 560 300" role="img" aria-label="Diamond fill meter">
+        <defs><clipPath id="dia"><polygon points="150,40 258,160 150,280 42,160"/></clipPath></defs>
+        <polygon points="150,40 258,160 150,280 42,160" fill="#FCE2C5" fill-opacity="0.5"/>
+        <g clip-path="url(#dia)">
+          <rect x="42" y="184" width="216" height="100" fill="#AB4531"/>
+          <rect x="42" y="261" width="216" height="23" fill="#421E18"/>
+        </g>
+        <polygon points="150,40 258,160 150,280 42,160" fill="none" stroke="#C9943A" stroke-width="2"/>
+        <text x="150" y="140" text-anchor="middle" font-family="Fraunces,serif" font-size="28" font-weight="600" fill="#421E18">40%</text>
+        <text x="150" y="162" text-anchor="middle" font-family="Inter,sans-serif" font-size="12.5" fill="#5b3a30">₹1 Cr of ₹2.5 Cr</text>
+        <rect x="330" y="74" width="15" height="15" rx="4" fill="#FCE2C5" fill-opacity="0.7" stroke="#C9943A" stroke-width="1"/>
+        <text x="354" y="80" font-family="Fraunces,serif" font-size="17" font-weight="600" fill="#421E18">₹2.5 Cr · Goal</text>
+        <text x="354" y="98" font-family="Inter,sans-serif" font-size="12.5" fill="#7a5448">The full endowment target</text>
+        <rect x="330" y="144" width="15" height="15" rx="4" fill="#AB4531"/>
+        <text x="354" y="150" font-family="Fraunces,serif" font-size="17" font-weight="600" fill="#AB4531">₹1 Cr · Raised</text>
+        <text x="354" y="168" font-family="Inter,sans-serif" font-size="12.5" fill="#7a5448">40% of the goal</text>
+        <rect x="330" y="214" width="15" height="15" rx="4" fill="#421E18"/>
+        <text x="354" y="220" font-family="Fraunces,serif" font-size="17" font-weight="600" fill="#421E18">₹20 L · Utilised</text>
+        <text x="354" y="238" font-family="Inter,sans-serif" font-size="12.5" fill="#7a5448">Base band — to replenish</text>
+      </svg>
+    </div>
+
+    <!-- J: Summit climb -->
+    <div class="opt">
+      <span class="tag">Option J</span>
+      <h2>Summit climb</h2>
+      <p class="desc">An aspirational ascent — base is what is utilised, the flag marks how far we have climbed (40%), the peak is the goal.</p>
+      <svg viewBox="0 0 560 300" role="img" aria-label="Summit climb">
+        <defs><clipPath id="mtn"><polygon points="40,262 200,52 360,262"/></clipPath></defs>
+        <polygon points="40,262 200,52 360,262" fill="#FCE2C5" fill-opacity="0.5"/>
+        <g clip-path="url(#mtn)">
+          <rect x="40" y="178" width="320" height="90" fill="#AB4531"/>
+          <rect x="40" y="245" width="320" height="20" fill="#421E18"/>
+        </g>
+        <polygon points="40,262 200,52 360,262" fill="none" stroke="#C9943A" stroke-width="2"/>
+        <line x1="200" y1="52" x2="200" y2="30" stroke="#8E3826" stroke-width="2"/>
+        <polygon points="200,30 224,37 200,44" fill="#C9943A"/>
+        <circle cx="136" cy="178" r="6" fill="#fff" stroke="#AB4531" stroke-width="3"/>
+        <line x1="200" y1="52" x2="340" y2="70" stroke="#C9943A" stroke-width="1"/><circle cx="340" cy="70" r="3.5" fill="#C9943A"/>
+        <line x1="136" y1="178" x2="340" y2="158" stroke="#C9943A" stroke-width="1"/><circle cx="340" cy="158" r="3.5" fill="#AB4531"/>
+        <line x1="200" y1="252" x2="340" y2="236" stroke="#C9943A" stroke-width="1"/><circle cx="340" cy="236" r="3.5" fill="#421E18"/>
+        <text x="354" y="66" font-family="Fraunces,serif" font-size="19" font-weight="600" fill="#421E18">₹2.5 Cr</text>
+        <text x="354" y="84" font-family="Inter,sans-serif" font-size="12.5" fill="#7a5448">Summit — the goal</text>
+        <text x="354" y="154" font-family="Fraunces,serif" font-size="18" font-weight="600" fill="#AB4531">₹1 Cr</text>
+        <text x="354" y="172" font-family="Inter,sans-serif" font-size="12.5" fill="#7a5448">Raised — 40% climbed</text>
+        <text x="354" y="232" font-family="Fraunces,serif" font-size="17" font-weight="600" fill="#421E18">₹20 L</text>
+        <text x="354" y="250" font-family="Inter,sans-serif" font-size="12.5" fill="#7a5448">Utilised at base camp</text>
+      </svg>
+    </div>
+
+    <!-- K: Coin stack -->
+    <div class="opt">
+      <span class="tag">Option K</span>
+      <h2>Coin stack</h2>
+      <p class="desc">A literal stack — each coin ≈ ₹25 L. Four coins raised so far; the base coin marks what is already utilised; faint coins are still needed.</p>
+      <svg viewBox="0 0 560 320" role="img" aria-label="Coin stack">
+        <ellipse cx="160" cy="272" rx="80" ry="17" fill="#421E18" fill-opacity="1" stroke="#2c130e" stroke-width="1"/><ellipse cx="160" cy="251" rx="80" ry="17" fill="#AB4531" fill-opacity="1" stroke="#8E3826" stroke-width="1"/><ellipse cx="160" cy="230" rx="80" ry="17" fill="#AB4531" fill-opacity="1" stroke="#8E3826" stroke-width="1"/><ellipse cx="160" cy="209" rx="80" ry="17" fill="#AB4531" fill-opacity="1" stroke="#8E3826" stroke-width="1"/><ellipse cx="160" cy="188" rx="80" ry="17" fill="#FCE2C5" fill-opacity="0.55" stroke="#C9943A" stroke-width="1"/><ellipse cx="160" cy="167" rx="80" ry="17" fill="#FCE2C5" fill-opacity="0.55" stroke="#C9943A" stroke-width="1"/><ellipse cx="160" cy="146" rx="80" ry="17" fill="#FCE2C5" fill-opacity="0.55" stroke="#C9943A" stroke-width="1"/><ellipse cx="160" cy="125" rx="80" ry="17" fill="#FCE2C5" fill-opacity="0.55" stroke="#C9943A" stroke-width="1"/><ellipse cx="160" cy="104" rx="80" ry="17" fill="#FCE2C5" fill-opacity="0.55" stroke="#C9943A" stroke-width="1"/><ellipse cx="160" cy="83" rx="80" ry="17" fill="#FCE2C5" fill-opacity="0.55" stroke="#C9943A" stroke-width="1"/>
+        <line x1="240" y1="272" x2="338" y2="262" stroke="#C9943A" stroke-width="1"/><circle cx="338" cy="262" r="3.5" fill="#421E18"/>
+        <line x1="240" y1="230" x2="338" y2="170" stroke="#C9943A" stroke-width="1"/><circle cx="338" cy="170" r="3.5" fill="#AB4531"/>
+        <line x1="240" y1="104" x2="338" y2="78" stroke="#C9943A" stroke-width="1"/><circle cx="338" cy="78" r="3.5" fill="#C9943A"/>
+        <text x="352" y="72" font-family="Fraunces,serif" font-size="18" font-weight="600" fill="#421E18">₹2.5 Cr</text>
+        <text x="352" y="90" font-family="Inter,sans-serif" font-size="12.5" fill="#7a5448">Goal — full stack</text>
+        <text x="352" y="164" font-family="Fraunces,serif" font-size="18" font-weight="600" fill="#AB4531">₹1 Cr</text>
+        <text x="352" y="182" font-family="Inter,sans-serif" font-size="12.5" fill="#7a5448">Raised — four coins</text>
+        <text x="352" y="256" font-family="Fraunces,serif" font-size="17" font-weight="600" fill="#421E18">₹20 L</text>
+        <text x="352" y="274" font-family="Inter,sans-serif" font-size="12.5" fill="#7a5448">Utilised — base coin</text>
+      </svg>
+    </div>
+
+    <!-- L: Milestone track -->
+    <div class="opt">
+      <span class="tag">Option L</span>
+      <h2>Milestone track</h2>
+      <p class="desc">A horizontal journey with flags — utilised, raised (you are here), and the goal at the finish.</p>
+      <svg viewBox="0 0 560 190" role="img" aria-label="Milestone track">
+        <rect x="40" y="116" width="480" height="26" rx="13" fill="#FCE2C5" fill-opacity="0.6" stroke="#C9943A" stroke-width="1.5"/>
+        <rect x="40" y="116" width="192" height="26" rx="13" fill="#AB4531"/>
+        <rect x="40" y="116" width="38" height="26" rx="13" fill="#421E18"/>
+        <line x1="78" y1="116" x2="78" y2="92" stroke="#8E3826" stroke-width="1.5"/>
+        <polygon points="78,92 96,97 78,102" fill="#421E18"/>
+        <text x="78" y="84" text-anchor="middle" font-family="Fraunces,serif" font-size="14" font-weight="600" fill="#421E18">₹20 L</text>
+        <text x="78" y="172" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#7a5448">Utilised</text>
+        <line x1="232" y1="116" x2="232" y2="74" stroke="#8E3826" stroke-width="1.5"/>
+        <polygon points="232,74 254,80 232,86" fill="#AB4531"/>
+        <text x="232" y="66" text-anchor="middle" font-family="Fraunces,serif" font-size="16" font-weight="600" fill="#AB4531">₹1 Cr</text>
+        <text x="232" y="172" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#7a5448">Raised · you are here (40%)</text>
+        <line x1="520" y1="116" x2="520" y2="74" stroke="#B07E2C" stroke-width="1.5"/>
+        <polygon points="520,74 498,80 520,86" fill="#C9943A"/>
+        <text x="520" y="66" text-anchor="end" font-family="Fraunces,serif" font-size="16" font-weight="600" fill="#421E18">₹2.5 Cr</text>
+        <text x="520" y="172" text-anchor="end" font-family="Inter,sans-serif" font-size="11.5" fill="#7a5448">Goal</text>
+      </svg>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
