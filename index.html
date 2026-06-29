@@ -7,8 +7,9 @@
 <meta name="description" content="Instituted in 2025 by the Class of 1965, the founding batch of IIT Kanpur, to recognise original and high-impact research at the Institute." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+<link rel="preload" as="image" href="images/banner.jpg" fetchpriority="high">
 <style>
 :root{
   --ink:#2A1410;--maroon:#421E18;--rust:#AB4531;--gold:#C9943A;--gold-deep:#B07E2C;
@@ -111,7 +112,7 @@ img{display:block;max-width:100%}
 .infonote h4 .di{width:34px;height:34px;border-radius:9px;flex:0 0 auto;display:grid;place-items:center;background:var(--champagne);color:var(--rust)}
 .infonote p{font-size:.92rem;margin-top:10px;line-height:1.6}
 .infonote a{color:var(--rust);font-weight:600;text-decoration:underline}
-/* multi-step form */
+/* multi-step DONATION FORM styles (fields below are submitted to the backend) */
 .dform .dh{text-align:center;margin-bottom:22px}
 .dform .dh h3{font-family:'Fraunces';font-size:1.7rem;color:var(--rust);font-weight:600}
 .dform .dh p{font-size:.95rem;margin-top:4px}
@@ -201,7 +202,7 @@ img{display:block;max-width:100%}
 .vision-img .cap span{font-size:.82rem;color:rgba(252,226,197,.82)}
 .qbanner{position:relative;overflow:hidden;width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);margin-top:52px}
 .qbanner .bg{position:absolute;inset:-14% 0;width:100%;height:128%;object-fit:cover;filter:grayscale(.7) brightness(.52) contrast(1.05)}
-.qbanner .bgfix{position:absolute;left:0;right:0;top:-32%;height:164%;background-image:url('images/images (7).jpeg'),url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1800&q=80');background-size:cover;background-position:center;filter:grayscale(.7) brightness(.5) contrast(1.05);will-change:transform}
+.qbanner .bgfix{position:absolute;left:0;right:0;top:-32%;height:164%;background-image:url('images/library.jpeg'),url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1800&q=80');background-size:cover;background-position:center;filter:grayscale(.7) brightness(.5) contrast(1.05);will-change:transform}
 .qbanner .ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,12,8,.5),rgba(42,20,16,.66))}
 .qbanner .inner{position:relative;padding:72px 24px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:26px}
 .qlayer{display:flex;flex-direction:column;gap:20px;align-items:center;max-width:1040px;width:100%;font-family:'Inter',sans-serif;text-shadow:0 2px 22px rgba(0,0,0,.45)}
@@ -426,11 +427,31 @@ img{display:block;max-width:100%}
   .foot .fgrid{grid-template-columns:1.4fr 1fr 1fr}
   .mbar{display:none}
 }
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+[data-aos]{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+[data-aos="fade"]{transform:none}
+[data-aos].in-view{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}[data-aos]{opacity:1!important;transform:none!important}}
 :focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
 </style>
 </head>
 <body>
+<!--
+  ============================================================================
+   PIONEERING RESEARCH & INNOVATION AWARD - IIT KANPUR (Class of 1965)
+   Single-file landing page  =>  HTML structure + inline CSS (<style>) + inline JS
+  ----------------------------------------------------------------------------
+   >>> BACKEND INTEGRATION POINTS  (search the word "BACKEND" to jump to each) <<<
+     1) DONATION FORM  (section #donate)
+          - Collects: country, currency, frequency, amount, name, email,
+            phone, PAN, affiliation, anonymous(Y/N).
+          - On "Pay Now"  =>  POST this data to your payment gateway / Zoho / API.
+     2) CAMPAIGN FIGURES  (GOAL / RAISED / UTILISED)
+          - Defined once in the JS (search "CAMPAIGN FIGURES").
+          - They drive: the progress card, the % bar, the Venn diagram,
+            the impact stat band and the mobile sticky bar.
+          - Replace the hard-coded numbers with a value fetched from your API.
+  ============================================================================
+-->
 
 <nav class="nav" id="nav">
   <a class="brand" href="#top">
@@ -449,7 +470,7 @@ img{display:block;max-width:100%}
 <!-- HERO -->
 <header class="hero" id="top">
   <h1 class="sr-only">Pioneering Research and Innovation Award - IIT Kanpur, Class of 1965</h1>
-  <img class="hero-banner" data-aos="fade" src="images/banner.jpg" alt="Pioneering Research & Innovation Award - IIT Kanpur" />
+  <img class="hero-banner" src="images/banner.jpg" alt="Pioneering Research & Innovation Award - IIT Kanpur" fetchpriority="high" decoding="async" />
   <div class="hero-content">
     <div data-aos="fade-up">
       <span class="eyebrow">Instituted 2025 · By the Class of 1965</span>
@@ -472,6 +493,14 @@ img{display:block;max-width:100%}
       <h2 class="h-sec">Help us build a <span class="em">perpetual legacy.</span></h2>
     </div>
     <div class="donate-grid">
+      <!-- ==========================================================
+           DONATION FORM  ->  *** BACKEND INTEGRATION REQUIRED ***
+           Step 1: country / currency / frequency / amount
+           Step 2: name / email / phone / PAN / affiliation / anonymous
+           On submit ("Pay Now") the JS builds a payload (see the
+           "DONATION FORM" block in the page script) - POST it to your
+           payment gateway / Zoho Forms / REST API there.
+           ========================================================== -->
       <!-- Multi-step form -->
       <div class="dform" data-aos="fade-up">
         <!-- STEP 1 -->
@@ -537,6 +566,7 @@ img{display:block;max-width:100%}
           </div>
           <div class="dnav">
             <button class="btn btn-soft" id="toStep1">← Previous</button>
+            <!-- BACKEND: this button triggers donation submit (see JS payNow handler) -->
             <button class="btn" id="payNow">Pay Now</button>
           </div>
           <p class="dnote">Donations are eligible under Section 80G (India). A receipt is emailed within 4-5 working days; PAN is required for an 80G receipt.</p>
@@ -544,6 +574,8 @@ img{display:block;max-width:100%}
       </div>
       <!-- Side: progress + notes -->
       <div class="donate-side">
+        <!-- CAMPAIGN PROGRESS card -> BACKEND: the "Raised" & "Goal" amounts and the
+             % bar are computed from the GOAL/RAISED/UTIL values in the JS. -->
         <div class="progress" id="progress" data-aos="fade-up">
           <div class="top"><span class="lab">Campaign Progress</span><span class="pct"><span id="pctNum">0</span>% toward goal</span></div>
           <div class="track"><div class="fill" id="pFill"></div><div class="util" id="pUtil"></div></div>
@@ -619,7 +651,7 @@ img{display:block;max-width:100%}
         <p class="lead-sec" data-aos="fade-up">More than an award, it is a gift from one generation of pioneers to the next - to ensure that the bold thinking, exceptional talent and culture of innovation that shaped IIT Kanpur continues to inspire for generations to come.</p>
       </div>
       <div class="vision-img" data-aos="fade-up" data-aos-delay="100">
-        <img src="images/banner.jpg" alt="Class of 1965 reunion at IIT Kanpur" />
+        <img src="images/banner.jpg" alt="Class of 1965 reunion at IIT Kanpur" loading="lazy" decoding="async" />
       </div>
     </div>
     <div class="qbanner" data-aos="fade-up">
@@ -668,6 +700,8 @@ img{display:block;max-width:100%}
       <span class="eyebrow center">Building a Perpetual Legacy</span>
       <h2 class="h-sec">Impact So Far</h2>
     </div>
+    <!-- Impact stats -> BACKEND (optional): the data-count numbers
+         (researchers supported, ₹ awarded, years) can be fed from your API. -->
     <div class="statband" data-aos="fade-up">
       <div class="stat">
         <div class="big" data-count="4">0</div><div class="cl">Researchers Supported</div>
@@ -683,6 +717,8 @@ img{display:block;max-width:100%}
       </div>
     </div>
     <div class="fundmap" data-aos="fade-up">
+      <!-- Funding Venn (raised vs goal) -> BACKEND: arc lengths + centre figures
+           are derived from GOAL/RAISED/UTIL in the JS. -->
       <div class="fm-viz">
         <svg class="venn" id="venn" viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="₹1 Cr raised of ₹2.5 Cr goal; ₹20 L utilised">
           <circle cx="180" cy="180" r="150" fill="none" stroke="#FCE2C5" stroke-width="20"/>
@@ -746,7 +782,7 @@ img{display:block;max-width:100%}
     <div class="carousel" data-aos="fade-up">
       <div class="track2" id="trackStudents" data-track="students">
         <article class="card">
-          <div class="ph"><span class="badge">Student Awardee · 2025</span><img src="images/Vikas 1.JPG" alt="Vikas Vats"></div>
+          <div class="ph"><span class="badge">Student Awardee · 2025</span><img src="images/Vikas 1.JPG" alt="Vikas Vats" loading="lazy" decoding="async"></div>
           <div class="cb">
             <h3>Vikas Vats</h3>
             <div class="role">PhD · IIT Kanpur</div>
@@ -757,7 +793,7 @@ img{display:block;max-width:100%}
           </div>
         </article>
         <article class="card">
-          <div class="ph"><span class="badge">Student Awardee · 2026</span><img src="images/PIyush K.jpeg" alt="Piyush Kumar" onerror="this.src='https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?auto=format&fit=crop&w=700&q=80'"></div>
+          <div class="ph"><span class="badge">Student Awardee · 2026</span><img src="images/PIyush K.jpeg" alt="Piyush Kumar" loading="lazy" decoding="async" onerror="this.src='https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?auto=format&fit=crop&w=700&q=80'"></div>
           <div class="cb">
             <h3>Piyush Kumar</h3>
             <div class="role">PhD Scholar · Dept. of BSBE, IIT Kanpur</div>
@@ -770,7 +806,7 @@ img{display:block;max-width:100%}
       </div>
       <div class="track2" id="trackFaculty" data-track="faculty" hidden>
         <article class="card">
-          <div class="ph"><span class="badge">Faculty Awardee · 2025</span><img src="images/Tushar 1.JPG" alt="Tushar Sandhan"></div>
+          <div class="ph"><span class="badge">Faculty Awardee · 2025</span><img src="images/Tushar 1.JPG" alt="Tushar Sandhan" loading="lazy" decoding="async"></div>
           <div class="cb">
             <h3>Tushar Sandhan</h3>
             <div class="role">Faculty · IIT Kanpur</div>
@@ -781,7 +817,7 @@ img{display:block;max-width:100%}
           </div>
         </article>
         <article class="card">
-          <div class="ph"><span class="badge">Faculty Awardee · 2026</span><img src="images/Dr. Raghvendra Kuma.jpeg" alt="Dr. Raghvendra Kumar Chaudhary"></div>
+          <div class="ph"><span class="badge">Faculty Awardee · 2026</span><img src="images/Dr. Raghvendra Kuma.jpeg" alt="Dr. Raghvendra Kumar Chaudhary" loading="lazy" decoding="async"></div>
           <div class="cb">
             <h3>Dr. Raghvendra Kumar Chaudhary</h3>
             <div class="role">Associate Professor · Electrical Engineering</div>
@@ -856,7 +892,7 @@ img{display:block;max-width:100%}
   <div class="wrap">
     <div class="fgrid">
       <div>
-        <a class="brand" href="#top"><img class="logo" src="images/IITK Logo_White-01.png" alt="IIT Kanpur" onerror="this.outerHTML='<span class=\'mark\'>65</span>'"><span class="txt"><b>Pioneering Research &amp; Innovation Award</b><span>Class of 1965</span></span></a>
+        <a class="brand" href="#top"><img class="logo" src="images/IITK Logo_White-01.png" alt="IIT Kanpur" loading="lazy" decoding="async" onerror="this.outerHTML='<span class=\'mark\'>65</span>'"><span class="txt"><b>Pioneering Research &amp; Innovation Award</b><span>Class of 1965</span></span></a>
         <p class="tag">Created by Alumni. Sustained by Alumni. Inspired by IIT Kanpur's Future.</p>
       </div>
       <div>
@@ -875,15 +911,22 @@ img{display:block;max-width:100%}
   </div>
 </footer>
 
+<!-- MOBILE BAR -> BACKEND: the "₹1 Cr raised of ₹2.5 Cr" text and the bar
+     width should also reflect the live campaign figures. -->
 <!-- MOBILE BAR -->
 <div class="mbar" id="mbar">
   <div class="info"><div class="t">₹1 Cr raised of ₹2.5 Cr</div><div class="mtrack"><div class="mfill"></div></div></div>
   <a href="#donate" class="btn">Contribute</a>
 </div>
 
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
-  AOS.init({duration:750,easing:'ease-out-cubic',once:true,offset:60});
+  /* lightweight reveal (replaces AOS - no third-party CSS/JS) */
+  (function(){
+    const els=document.querySelectorAll('[data-aos]');if(!els.length)return;
+    if(window.matchMedia('(prefers-reduced-motion:reduce)').matches){els.forEach(e=>e.classList.add('in-view'));return;}
+    const io=new IntersectionObserver((ents)=>{ents.forEach(en=>{if(en.isIntersecting){const d=en.target.getAttribute('data-aos-delay');if(d)en.target.style.transitionDelay=(+d)+'ms';en.target.classList.add('in-view');io.unobserve(en.target);}});},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+    els.forEach(e=>io.observe(e));
+  })();
   document.getElementById('yr').textContent=new Date().getFullYear();
 
   const nav=document.getElementById('nav'),mbar=document.getElementById('mbar'),join=document.getElementById('join');
@@ -897,7 +940,19 @@ img{display:block;max-width:100%}
 
   const animateNumber=(el,target,dur=1500)=>{const start=performance.now();const step=now=>{const t=Math.min((now-start)/dur,1);const e=1-Math.pow(1-t,3);el.textContent=Math.round(target*e);if(t<1)requestAnimationFrame(step);};requestAnimationFrame(step);};
 
-  /* Progress */
+  /* ================================================================
+     CAMPAIGN FIGURES  ->  *** BACKEND INTEGRATION POINT ***
+     These three numbers are the single source of truth for the whole page:
+     progress bar + %, Venn diagram arcs, impact stats and the mobile bar.
+     Replace the hard-coded values with data from your API, e.g.:
+        fetch('/api/campaign')
+          .then(r => r.json())
+          .then(d => {
+             // GOAL = d.goalCr; RAISED = d.raisedCr; UTIL = d.utilCr;
+             // then re-run fireProgress() and refresh the Venn
+          });
+     (GOAL / RAISED / UTIL are in ₹ crore.)
+     ================================================================ */
   const GOAL=2.5,RAISED=1,UTIL=0.2;
   const raisedPct=Math.round(RAISED/GOAL*100),utilPct=Math.round(UTIL/GOAL*100);
   const fireProgress=()=>setTimeout(()=>{document.getElementById('pFill').style.width=raisedPct+'%';document.getElementById('pUtil').style.width=utilPct+'%';animateNumber(document.getElementById('pctNum'),raisedPct,1700);},600);
@@ -932,7 +987,12 @@ img{display:block;max-width:100%}
     window.addEventListener('resize',update);
   })();
 
-  /* Multi-step donation form */
+  /* ================================================================
+     DONATION FORM  ->  *** BACKEND INTEGRATION POINT ***
+     `state` below holds everything the backend needs (country, currency,
+     frequency, amount, affiliation). Name/email/phone/PAN/anonymous are
+     read from the inputs in the "Pay Now" handler at the bottom of this block.
+     ================================================================ */
   (function(){
     const form=document.querySelector('.dform');if(!form)return;
     const state={country:'India',cur:'₹',freq:'One-time',amount:50000,affiliation:''};
@@ -970,9 +1030,33 @@ img{display:block;max-width:100%}
       show(2);
     });
     document.getElementById('toStep1').addEventListener('click',()=>show(1));
+    /* ---- BACKEND: DONATION SUBMIT --------------------------------
+       Validate, build the payload, then POST to your gateway / Zoho / API
+       and redirect the user to the payment page. The alert below is a
+       placeholder - replace it with the real submission code. ---------- */
     document.getElementById('payNow').addEventListener('click',()=>{
       const name=document.getElementById('dn').value.trim(),email=document.getElementById('de').value.trim(),aff=state.affiliation;
       if(!name||!email||!aff){alert('Please fill your name, email and affiliation.');return;}
+
+      // --- Full payload the backend should receive ---
+      // const payload={
+      //   amount:    state.amount,                     // number
+      //   currency:  state.cur,                        // ₹ / $ / £ / € ...
+      //   frequency: state.freq,                       // 'One-time' | 'Monthly'
+      //   country:   state.country,
+      //   name, email,
+      //   phone:     document.getElementById('dph').value.trim(),
+      //   pan:       document.getElementById('dpan').value.trim(),
+      //   affiliation: aff,                            // Alumni / Non-Alumni / Organization
+      //   anonymous: document.querySelector('input[name="anon"]:checked').value === 'yes'
+      // };
+      // fetch('/api/donate', {
+      //   method:'POST', headers:{'Content-Type':'application/json'},
+      //   body: JSON.stringify(payload)
+      // }).then(r=>r.json()).then(d=>{ window.location.href = d.paymentUrl; })
+      //   .catch(()=>alert('Something went wrong. Please try again.'));
+
+      // --- placeholder (remove once the backend is wired) ---
       alert('Demo form - connect your payment gateway / Zoho here.\n\n'+state.freq+' · '+fmt(state.amount)+' · '+state.country+' · '+aff);
     });
   })();
@@ -1015,7 +1099,7 @@ img{display:block;max-width:100%}
   })();
 
   /* Testimonials slider */
-  (function(){const track=document.getElementById('tTrack');if(!track)return;const dw=document.getElementById('tDots');const cards=[...track.querySelectorAll('.tcard')];cards.forEach((_,i)=>{const d=document.createElement('button');d.className='dot'+(i===0?' active':'');d.setAttribute('aria-label','Testimonial '+(i+1));d.addEventListener('click',()=>cards[i].scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'}));dw.appendChild(d);});const upd=()=>{const c=track.scrollLeft+track.clientWidth/2;let idx=0,min=Infinity;cards.forEach((card,i)=>{const cc=card.offsetLeft+card.clientWidth/2;const dist=Math.abs(cc-c);if(dist<min){min=dist;idx=i;}});[...dw.children].forEach((d,i)=>d.classList.toggle('active',i===idx));};track.addEventListener('scroll',()=>requestAnimationFrame(upd),{passive:true});const step=dir=>{const w=cards[0].clientWidth+18;track.scrollBy({left:dir*w,behavior:'smooth'});};let at=null;const red=window.matchMedia('(prefers-reduced-motion: reduce)').matches;const tk=()=>{if(cards.length<2)return;const w=cards[0].clientWidth+18;if(track.scrollLeft+track.clientWidth>=track.scrollWidth-8){track.scrollTo({left:0,behavior:'smooth'});}else{track.scrollBy({left:w,behavior:'smooth'});}};const st=()=>{if(at){clearInterval(at);at=null;}};const sa=()=>{st();if(!red)at=setInterval(tk,4000);};track.addEventListener('mouseenter',st);track.addEventListener('mouseleave',sa);track.addEventListener('touchstart',st,{passive:true});document.getElementById('tPrev').addEventListener('click',()=>{step(-1);sa();});document.getElementById('tNext').addEventListener('click',()=>{step(1);sa();});upd();sa();})();
+  (function(){const track=document.getElementById('tTrack');if(!track||track.offsetParent===null)return;const dw=document.getElementById('tDots');const cards=[...track.querySelectorAll('.tcard')];cards.forEach((_,i)=>{const d=document.createElement('button');d.className='dot'+(i===0?' active':'');d.setAttribute('aria-label','Testimonial '+(i+1));d.addEventListener('click',()=>cards[i].scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'}));dw.appendChild(d);});const upd=()=>{const c=track.scrollLeft+track.clientWidth/2;let idx=0,min=Infinity;cards.forEach((card,i)=>{const cc=card.offsetLeft+card.clientWidth/2;const dist=Math.abs(cc-c);if(dist<min){min=dist;idx=i;}});[...dw.children].forEach((d,i)=>d.classList.toggle('active',i===idx));};track.addEventListener('scroll',()=>requestAnimationFrame(upd),{passive:true});const step=dir=>{const w=cards[0].clientWidth+18;track.scrollBy({left:dir*w,behavior:'smooth'});};let at=null;const red=window.matchMedia('(prefers-reduced-motion: reduce)').matches;const tk=()=>{if(cards.length<2)return;const w=cards[0].clientWidth+18;if(track.scrollLeft+track.clientWidth>=track.scrollWidth-8){track.scrollTo({left:0,behavior:'smooth'});}else{track.scrollBy({left:w,behavior:'smooth'});}};const st=()=>{if(at){clearInterval(at);at=null;}};const sa=()=>{st();if(!red)at=setInterval(tk,4000);};track.addEventListener('mouseenter',st);track.addEventListener('mouseleave',sa);track.addEventListener('touchstart',st,{passive:true});document.getElementById('tPrev').addEventListener('click',()=>{step(-1);sa();});document.getElementById('tNext').addEventListener('click',()=>{step(1);sa();});upd();sa();})();
 
   /* Core Values auto-playing showcase */
   (function(){
