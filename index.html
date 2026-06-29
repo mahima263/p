@@ -58,7 +58,7 @@ img{display:block;max-width:100%}
 .hero-banner{display:block;width:100%;height:auto}
 .hero-content{max-width:var(--maxw);margin:0 auto;padding:30px 20px 36px;text-align:center}
 .hero-title{font-family:'Fraunces';font-weight:400;font-size:clamp(2.3rem,9vw,4rem);line-height:1.05;letter-spacing:-.02em;color:var(--maroon);margin:18px 0 0}
-.hero-sub{margin:20px auto 0;font-size:clamp(1.04rem,2.5vw,1.24rem);line-height:1.65;color:var(--muted);max-width:78ch}
+.hero-sub{margin:20px auto 0;font-size:clamp(1.04rem,2.5vw,1.24rem);line-height:1.65;color:var(--muted);max-width:1180px;text-wrap:balance}
 .hero .actions{margin-top:30px;display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
 .hero .actions .btn{padding:19px 42px;font-size:1.06rem}
 .hero .tagline{margin-top:24px;font-family:'Fraunces';font-style:italic;font-size:.94rem;color:var(--muted)}
@@ -74,7 +74,7 @@ img{display:block;max-width:100%}
 @keyframes flow{0%{background-position:0 0}100%{background-position:200% 0}}
 @keyframes shine{0%{transform:translateX(-120%)}55%,100%{transform:translateX(260%)}}
 .util{position:absolute;inset:0 auto 0 0;width:0;border-radius:999px;background:rgba(252,226,197,.3);transition:width 2s cubic-bezier(.2,.8,.2,1) .25s}
-.pstats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}
+.pstats{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:22px}
 .pstat{text-align:left;border-left:2px solid rgba(252,226,197,.55);padding-left:12px}
 .pstat .n{font-family:'Fraunces';font-size:clamp(1.6rem,4.4vw,1.95rem);font-weight:500;color:#fff;line-height:1}
 .pstat .n .s{font-size:.6em;color:var(--champagne)}
@@ -181,8 +181,9 @@ img{display:block;max-width:100%}
 .vid .cicon .on{display:none}
 .vid .cicon.active .on{display:block}
 .vid .cicon.active .off{display:none}
-.dir-copy{margin-top:30px}
-.bigq{font-weight:400;font-size:clamp(1.18rem,3.4vw,1.5rem);line-height:1.6;color:rgba(42,20,16,.62);margin:0}
+.dir-copy{margin-top:30px;position:relative;background:linear-gradient(155deg,var(--cream),var(--cream-2));border:1px solid var(--line);border-radius:var(--radius);padding:38px 36px;box-shadow:var(--shadow)}
+.dir-copy .dquote{font-family:'Fraunces';font-size:4.4rem;line-height:.55;color:var(--gold);display:block;margin-bottom:4px}
+.bigq{font-family:'Fraunces';font-weight:400;font-size:clamp(1.35rem,3vw,1.78rem);line-height:1.5;color:var(--maroon);margin:0}
 .q-divider{height:2px;width:100%;background:linear-gradient(90deg,var(--gold),var(--rust));border:none;margin:26px 0 22px;opacity:.9}
 .attrib b{font-family:'Fraunces';font-weight:500;font-size:1.2rem;color:var(--ink)}
 .attrib span{font-size:1.05rem;color:var(--muted)}
@@ -200,6 +201,7 @@ img{display:block;max-width:100%}
 .vision-img .cap span{font-size:.82rem;color:rgba(252,226,197,.82)}
 .qbanner{position:relative;overflow:hidden;width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);margin-top:52px}
 .qbanner .bg{position:absolute;inset:-14% 0;width:100%;height:128%;object-fit:cover;filter:grayscale(.7) brightness(.52) contrast(1.05)}
+.qbanner .bgfix{position:absolute;left:0;right:0;top:-32%;height:164%;background-image:url('images/images (7).jpeg'),url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1800&q=80');background-size:cover;background-position:center;filter:grayscale(.7) brightness(.5) contrast(1.05);will-change:transform}
 .qbanner .ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,12,8,.5),rgba(42,20,16,.66))}
 .qbanner .inner{position:relative;padding:72px 24px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:26px}
 .qlayer{display:flex;flex-direction:column;gap:20px;align-items:center;max-width:1040px;width:100%;font-family:'Inter',sans-serif;text-shadow:0 2px 22px rgba(0,0,0,.45)}
@@ -281,8 +283,8 @@ img{display:block;max-width:100%}
 .fm-legend small{display:block;color:var(--muted);font-size:.86rem;line-height:1.4;margin-top:1px}
 .fm-note{margin-top:18px;font-size:.96rem;line-height:1.62;color:var(--muted)}
 .fm-note b{color:var(--rust);font-weight:600}
-.venn-c{opacity:0;transform:scale(.82);transform-box:fill-box;transform-origin:center;transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
-.venn.in .venn-c{opacity:1;transform:scale(1)}
+.venn .ring-p{stroke-dasharray:var(--c);stroke-dashoffset:var(--c);transition:stroke-dashoffset 1.5s cubic-bezier(.2,.8,.2,1)}
+.venn.in .ring-p{stroke-dashoffset:var(--o)}
 .modal-card .mbody .msh{font-family:'Fraunces';color:var(--rust);font-weight:600;font-size:1.04rem;margin-top:20px}
 @media(min-width:760px){.fundmap{grid-template-columns:.92fr 1.08fr;gap:38px;padding:38px 40px}}
 
@@ -337,8 +339,8 @@ img{display:block;max-width:100%}
 .flourish span{width:36px;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
 .flourish span:last-child{background:linear-gradient(90deg,var(--gold),transparent)}
 .flourish i{width:7px;height:7px;background:var(--gold);transform:rotate(45deg);border-radius:1px;box-shadow:0 0 12px rgba(201,148,58,.7)}
-.finale .eyebrow{color:var(--gold)}
-.finale h2{color:#fff;font-family:'Fraunces';font-size:clamp(1.8rem,5vw,2.7rem);font-weight:400;margin-top:12px;line-height:1.14;max-width:20ch}
+.finale .eyebrow{color:#FBE6CC;font-size:1.42rem;letter-spacing:.2em;font-weight:700}
+.finale h2{color:#fff;font-family:'Fraunces';font-size:clamp(1.1rem,2.5vw,1.45rem);font-weight:400;margin-top:12px;line-height:1.25;max-width:26ch}
 .finale .em{color:#F0C879;font-style:italic}
 .finale p{color:rgba(252,226,197,.82);margin:16px auto 0;font-size:1.04rem;max-width:62ch;line-height:1.7}
 .fl-actions{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;align-items:center;margin-top:28px}
@@ -547,7 +549,6 @@ img{display:block;max-width:100%}
           <div class="track"><div class="fill" id="pFill"></div><div class="util" id="pUtil"></div></div>
           <div class="pstats">
             <div class="pstat"><div class="n">₹1<span class="s"> Cr</span></div><div class="l">Raised</div></div>
-            <div class="pstat"><div class="n">₹20<span class="s"> L</span></div><div class="l">Utilised</div></div>
             <div class="pstat"><div class="n">₹2.5<span class="s"> Cr</span></div><div class="l">Goal</div></div>
           </div>
           <p class="helper">Help us build a perpetual legacy of research excellence and innovation at IIT Kanpur.</p>
@@ -598,7 +599,8 @@ img{display:block;max-width:100%}
         </div>
       </div>
       <div class="dir-copy" data-aos="fade-up" data-aos-delay="80">
-        <blockquote class="bigq">&ldquo;As IIT Kanpur continues to strengthen its research and innovation ecosystem, the Pioneering Research and Innovation Awards serve as a powerful catalyst for recognising bold ideas and encouraging translational impact. Together with our alumni, we can build one of India's most prestigious recognitions for research and innovation.&rdquo;</blockquote>
+        <span class="dquote">&ldquo;</span>
+        <blockquote class="bigq">Together with our alumni, we can build one of India's most prestigious recognitions for research and innovation.</blockquote>
         <hr class="q-divider" />
         <div class="attrib"><b>Prof. Manindra Agrawal</b>, <span>Director, IIT Kanpur</span></div>
       </div>
@@ -621,7 +623,7 @@ img{display:block;max-width:100%}
       </div>
     </div>
     <div class="qbanner" data-aos="fade-up">
-      <img class="bg" src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1800&q=80" alt="IIT Kanpur campus avenue" />
+      <div class="bgfix" role="img" aria-label="IIT Kanpur library"></div>
       <div class="ov"></div>
       <div class="inner">
       <div class="qlayer">
@@ -682,33 +684,23 @@ img{display:block;max-width:100%}
     </div>
     <div class="fundmap" data-aos="fade-up">
       <div class="fm-viz">
-        <svg class="venn" id="venn" viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Goal ₹2.5 Cr containing ₹1 Cr raised, containing ₹20 L utilised">
-          <g class="venn-c" style="transition-delay:0s">
-            <circle cx="180" cy="175" r="150" fill="#FCE2C5" fill-opacity=".45" stroke="#C9943A" stroke-width="2.5"/>
-            <text x="180" y="58" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-size="27" font-weight="600" fill="#421E18">₹2.5 Cr</text>
-            <text x="180" y="79" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="700" letter-spacing="2" fill="#AB4531">GOAL</text>
-          </g>
-          <g class="venn-c" style="transition-delay:.22s">
-            <circle cx="180" cy="232" r="93" fill="#AB4531" stroke="#8E3826" stroke-width="2"/>
-            <text x="180" y="172" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-size="23" font-weight="600" fill="#fff">₹1 Cr</text>
-            <text x="180" y="190" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" font-weight="700" letter-spacing="2" fill="#FCE2C5">RAISED</text>
-          </g>
-          <g class="venn-c" style="transition-delay:.44s">
-            <circle cx="180" cy="284" r="41" fill="#421E18" stroke="#C9943A" stroke-width="2"/>
-            <text x="180" y="281" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-size="16" font-weight="600" fill="#fff">₹20 L</text>
-            <text x="180" y="297" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" font-weight="700" letter-spacing="1.5" fill="#C9943A">UTILISED</text>
-          </g>
+        <svg class="venn" id="venn" viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="₹1 Cr raised of ₹2.5 Cr goal; ₹20 L utilised">
+          <circle cx="180" cy="180" r="150" fill="none" stroke="#FCE2C5" stroke-width="20"/>
+          <circle cx="180" cy="180" r="116" fill="none" stroke="#EFE3D5" stroke-width="15"/>
+          <circle class="ring-p" cx="180" cy="180" r="150" fill="none" stroke="#AB4531" stroke-width="20" stroke-linecap="round" transform="rotate(-90 180 180)" style="--c:942.48;--o:565.49"/>
+          <circle class="ring-p" cx="180" cy="180" r="116" fill="none" stroke="#421E18" stroke-width="15" stroke-linecap="round" transform="rotate(-90 180 180)" style="--c:728.85;--o:583.08"/>
+          <text x="180" y="176" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-size="46" font-weight="600" fill="#421E18">₹1 Cr</text>
+          <text x="180" y="207" text-anchor="middle" font-family="Inter,sans-serif" font-size="16.5" font-weight="600" fill="#6E4A38">raised of ₹2.5 Cr</text>
         </svg>
       </div>
       <div class="fm-copy">
         <span class="fm-eyebrow">How the corpus adds up</span>
-        <h3>Every rupee nests toward a perpetual goal.</h3>
+        <h3>Every rupee builds toward the goal.</h3>
         <ul class="fm-legend">
-          <li><span class="sw" style="background:#FCE2C5;border:1.5px solid #C9943A"></span><div><b>₹2.5 Cr - Goal</b><small>The full endowment target that sustains the award in perpetuity.</small></div></li>
-          <li><span class="sw" style="background:#AB4531"></span><div><b>₹1 Cr - Raised</b><small>Contributed so far by alumni, sitting within the goal.</small></div></li>
-          <li><span class="sw" style="background:#421E18"></span><div><b>₹20 L - Utilised</b><small>Already awarded to pioneers, drawn from the raised corpus.</small></div></li>
+          <li><span class="sw" style="background:#FCE2C5;border:1.5px solid #C9943A"></span><div><b>₹2.5 Cr · Goal</b><small>The full endowment target.</small></div></li>
+          <li><span class="sw" style="background:#AB4531"></span><div><b>₹1 Cr · Raised</b><small>40% of the goal so far.</small></div></li>
+          <li><span class="sw" style="background:#421E18"></span><div><b>₹20 L · Utilised</b><small>20% of raised - to be replenished.</small></div></li>
         </ul>
-        <p class="fm-note">₹1 Cr of the ₹2.5 Cr goal is raised, and ₹20 L has already been awarded from it. <b>We aim to replenish that ₹20 L too</b> - so the corpus stays whole and keeps giving, year after year.</p>
       </div>
     </div>
     <p class="endow" data-aos="fade-up">A permanent endowment. A permanent legacy.</p>
@@ -919,6 +911,26 @@ img{display:block;max-width:100%}
   /* Thermometer fill */
   /* Venn reveal */
   (function(){const v=document.getElementById('venn');if(!v)return;const o=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){v.classList.add('in');o.disconnect();}});},{threshold:.3});o.observe(v);})();
+  /* qbanner parallax - bg scrolls slower than content */
+  (function(){
+    const q=document.querySelector('.qbanner'),bg=q&&q.querySelector('.bgfix');
+    if(!bg)return;
+    if(window.matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+    const RANGE=90; // px the bg drifts across the whole pass
+    let ticking=false;
+    const update=()=>{
+      const r=q.getBoundingClientRect(),vh=window.innerHeight;
+      // -1 (entering from bottom) .. 1 (leaving at top)
+      let prog=(r.top+r.height/2-vh/2)/(vh/2+r.height/2);
+      prog=Math.max(-1,Math.min(1,prog));
+      bg.style.transform='translate3d(0,'+(prog*-RANGE)+'px,0)';
+      ticking=false;
+    };
+    const onScroll=()=>{if(!ticking){ticking=true;requestAnimationFrame(update);}};
+    update();
+    window.addEventListener('scroll',onScroll,{passive:true});
+    window.addEventListener('resize',update);
+  })();
 
   /* Multi-step donation form */
   (function(){
