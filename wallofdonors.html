@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Wall of Donors - Pioneering Research &amp; Innovation Award - IIT Kanpur</title>
+<meta name="description" content="Honouring the alumni and friends of IIT Kanpur whose generosity sustains the Pioneering Research & Innovation Award, instituted by the Class of 1965." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#2A1410;--maroon:#421E18;--rust:#AB4531;--gold:#C9943A;--gold-deep:#B07E2C;
+  --champagne:#FCE2C5;--cream:#FBF7F1;--cream-2:#F4EADD;--paper:#FFFFFF;
+  --muted:rgba(42,20,16,.66);--line:rgba(66,30,24,.10);
+  --shadow:0 22px 50px -30px rgba(66,30,24,.42);--shadow-lg:0 34px 70px -34px rgba(66,30,24,.5);
+  --radius:22px;--maxw:1480px;--sec:clamp(32px,4.2vw,56px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html,body{overflow-x:hidden;max-width:100%}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--cream);line-height:1.7;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:'Fraunces',Georgia,serif;font-weight:500;line-height:1.12;letter-spacing:-.01em;color:var(--maroon)}
+p{font-size:1rem;color:var(--muted)}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.em{font-style:normal;color:var(--rust)}
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 20px}
+.sec{padding:var(--sec) 0}
+.eyebrow{font-family:'Inter';font-weight:700;font-size:.76rem;letter-spacing:.18em;text-transform:uppercase;color:var(--rust);display:inline-block}
+.h-sec{font-family:'Fraunces',Georgia,serif;font-size:clamp(1.85rem,5vw,2.5rem);font-weight:400;line-height:1.12;letter-spacing:-.01em;color:var(--maroon);margin-top:14px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;font-family:'Inter';font-weight:600;font-size:.94rem;letter-spacing:.03em;padding:17px 32px;border-radius:10px;cursor:pointer;border:none;background:linear-gradient(120deg,var(--gold),var(--gold-deep));color:#fff;box-shadow:0 14px 30px -12px rgba(176,126,44,.7);transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s,filter .35s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 22px 40px -14px rgba(176,126,44,.85);filter:brightness(1.04)}
+.btn:active{transform:translateY(0)}
+.btn .arrow{transition:transform .35s}
+.btn:hover .arrow{transform:translateX(4px)}
+.btn-cta{padding:18px 44px;font-size:1.04rem}
+
+/* Nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:space-between;padding:14px 20px;transition:all .4s;background:rgba(251,247,241,.85);backdrop-filter:blur(14px);box-shadow:0 8px 30px -22px rgba(66,30,24,.5)}
+.brand{display:flex;align-items:center;gap:12px;min-width:0}
+.brand .mark{width:40px;height:40px;border-radius:11px;flex:0 0 auto;background:linear-gradient(135deg,var(--maroon),var(--rust));display:grid;place-items:center;color:var(--champagne);font-family:'Fraunces';font-weight:600;font-size:.82rem;box-shadow:0 8px 18px -8px rgba(66,30,24,.6)}
+.brand .logo{height:42px;width:auto;display:block}
+.brand .txt{min-width:0}
+.brand .txt b{font-family:'Fraunces';font-weight:500;font-size:.98rem;color:var(--maroon);display:block;line-height:1.15}
+.nav-right{display:flex;align-items:center;gap:16px;flex:0 0 auto}
+.nav-back{font-weight:600;font-size:.88rem;color:var(--rust);display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.nav-back:hover{text-decoration:underline}
+.nav .btn{padding:11px 22px;font-size:.84rem}
+
+/* Hero */
+.hero{padding:calc(76px + var(--sec)) 0 0;background:radial-gradient(90% 70% at 50% -5%,var(--cream),var(--cream-2));text-align:center}
+.hero .flourish{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:16px}
+.hero .flourish span{width:36px;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
+.hero .flourish span:last-child{background:linear-gradient(90deg,var(--gold),transparent)}
+.hero .flourish i{width:7px;height:7px;background:var(--gold);transform:rotate(45deg);border-radius:1px;box-shadow:0 0 12px rgba(201,148,58,.7)}
+.hero h1{font-size:clamp(2.1rem,6vw,3.2rem);font-weight:400}
+.hero .sub{margin:18px auto 0;max-width:66ch;font-size:clamp(1rem,2.4vw,1.14rem);line-height:1.7}
+
+/* Campaign target band */
+.targetband{margin:34px auto 0;max-width:1040px;border-radius:var(--radius);padding:30px 28px;background:linear-gradient(150deg,#AB4531,#8E3826);box-shadow:0 26px 54px -26px rgba(142,56,38,.7);color:var(--champagne);text-align:left}
+.targetband .top{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px;margin-bottom:14px}
+.targetband .lab{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700}
+.targetband .pct{font-family:'Fraunces';font-size:1.08rem;color:#fff}
+.track{position:relative;height:16px;border-radius:999px;background:rgba(255,255,255,.18);overflow:hidden;box-shadow:inset 0 1px 3px rgba(0,0,0,.25)}
+.fill{position:absolute;inset:0 auto 0 0;width:0;border-radius:999px;overflow:hidden;background:linear-gradient(90deg,var(--gold-deep),var(--gold),#F2D49B);background-size:200% 100%;transition:width 1.8s cubic-bezier(.2,.8,.2,1);animation:flow 3s linear infinite}
+.fill::after{content:"";position:absolute;inset:0;border-radius:999px;background:linear-gradient(100deg,transparent 20%,rgba(255,255,255,.6) 50%,transparent 80%);transform:translateX(-120%);animation:shine 2.6s ease-in-out infinite}
+@keyframes flow{0%{background-position:0 0}100%{background-position:200% 0}}
+@keyframes shine{0%{transform:translateX(-120%)}55%,100%{transform:translateX(260%)}}
+.tstats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
+.tstat{text-align:left;border-left:2px solid rgba(252,226,197,.55);padding-left:12px}
+.tstat .n{font-family:'Fraunces';font-size:clamp(1.5rem,4.2vw,1.95rem);font-weight:500;color:#fff;line-height:1}
+.tstat .n .s{font-size:.6em;color:var(--champagne)}
+.tstat .l{font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(252,226,197,.78);margin-top:6px}
+.hero .cta-line{padding:26px 0 0;font-family:'Fraunces';font-style:italic;font-size:1.04rem;color:var(--muted)}
+.hero .cta-line a{color:var(--rust);font-weight:600;text-decoration:underline;font-style:normal;font-family:'Inter';font-size:.95rem}
+
+
+/* Wall */
+.wall{background:var(--cream)}
+.wall-head{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-top:38px}
+.wall-head h2{font-size:clamp(1.3rem,3.4vw,1.7rem);font-weight:500}
+.wall-head .cnt{font-family:'Fraunces';font-size:1.05rem;color:var(--gold-deep);white-space:nowrap}
+.wall-rule{height:2px;background:linear-gradient(90deg,var(--gold),var(--rust),transparent);border:none;margin:16px 0 22px;opacity:.85}
+
+/* Plaques - name + batch only */
+.plaques{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.plaque{position:relative;overflow:hidden;background:linear-gradient(160deg,var(--paper),var(--cream-2));border:1px solid var(--line);border-radius:16px;padding:20px 20px 18px;box-shadow:var(--shadow);transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
+.plaque::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-deep))}
+.plaque:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.plaque .nm{font-family:'Fraunces';font-weight:500;font-size:1.12rem;color:var(--maroon);line-height:1.25}
+.plaque .bt{margin-top:6px;font-size:.8rem;font-weight:600;color:var(--rust);letter-spacing:.04em}
+
+.anonline{margin-top:38px;text-align:center;font-family:'Fraunces';font-style:italic;font-size:1.05rem;color:var(--maroon);background:var(--paper);border:1px dashed rgba(201,148,58,.6);border-radius:14px;padding:18px 20px}
+.anonline b{color:var(--rust);font-style:normal}
+.noresults{display:none;text-align:center;padding:40px 20px;font-family:'Fraunces';font-style:italic;font-size:1.1rem;color:var(--muted)}
+
+/* CTA finale */
+.finale{position:relative;overflow:hidden;background:#AB4531;color:var(--champagne);padding:64px 0;margin-top:var(--sec)}
+.finale::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--gold),var(--rust),var(--gold),transparent);opacity:.85}
+.finale .inner{position:relative;max-width:840px;margin:0 auto;padding:0 24px;text-align:center}
+.finale h2{color:#fff;font-size:clamp(1.4rem,3.4vw,1.9rem);font-weight:400}
+.finale .em{color:#F0C879}
+.finale p{color:rgba(252,226,197,.82);margin:14px auto 0;max-width:56ch}
+.finale .btn{margin-top:26px}
+
+/* Footer */
+.foot{background:#2C130E;color:rgba(252,226,197,.62);padding:54px 0 calc(42px + env(safe-area-inset-bottom))}
+.foot .fgrid{display:grid;grid-template-columns:1fr;gap:30px}
+.foot .brand .logo{height:46px}
+.foot .brand .txt b{color:#fff}
+.foot h4{font-family:'Fraunces';font-weight:500;color:#fff;font-size:1.1rem;margin-bottom:12px}
+.foot p,.foot a{font-size:.92rem;line-height:1.7;color:rgba(252,226,197,.7)}
+.foot a.link{color:var(--gold);text-decoration:underline;display:inline-block;margin-top:6px}
+.foot .tag{font-family:'Fraunces';font-style:italic;color:rgba(252,226,197,.78);margin-top:6px}
+
+/* Reveal */
+[data-aos]{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+[data-aos].in-view{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}[data-aos]{opacity:1!important;transform:none!important}}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
+
+/* Responsive */
+@media(min-width:960px){
+  .wrap{padding:0 40px}
+  .nav{padding:14px 40px}
+  .foot .fgrid{grid-template-columns:1.4fr 1fr 1fr}
+}
+@media(max-width:768px){
+  .tstats{gap:14px}
+}
+@media(max-width:480px){
+  .nav{padding:12px 14px}
+  .brand{flex:1;margin-right:8px;gap:9px}
+  .brand .txt b{font-size:.8rem;line-height:1.2;white-space:normal}
+  .brand .logo{height:34px}
+  .nav-back{display:none}
+  .nav .btn{padding:10px 16px;font-size:.8rem}
+  .targetband{padding:24px 20px}
+  .tstats{grid-template-columns:repeat(3,1fr);gap:10px}
+  .tstat{padding-left:9px}
+  .tstat .n{font-size:1.25rem}
+  .tstat .l{font-size:.58rem}
+  .plaques{grid-template-columns:1fr 1fr;gap:10px}
+  .plaque{padding:16px 14px}
+  .plaque .nm{font-size:1rem}
+}
+@media(max-width:360px){
+  .plaques{grid-template-columns:1fr}
+  .hero h1{font-size:1.9rem}
+}
+</style>
+</head>
+<body>
+<!--
+  ============================================================================
+   WALL OF DONORS - Pioneering Research & Innovation Award (Class of 1965)
+   Companion page to index.html - same design system (Fraunces/Inter,
+   maroon/rust/gold/champagne).
+  ----------------------------------------------------------------------------
+   >>> BACKEND INTEGRATION POINTS  (search "BACKEND") <<<
+     1) CAMPAIGN FIGURES - GOAL / RAISED / DONOR COUNT (JS constants below)
+     2) DONORS LIST - the DONORS array in the JS is DEMO DATA. Replace it
+        with a fetch from your API / Google Sheet / DB. Each donor needs:
+          { name, batch, anonymous }
+        e.g. { name:'Abhay K. Bhushan', batch:'BT/EE/1965' }
+        Anonymous donors are counted, never listed by name.
+  ============================================================================
+-->
+
+<nav class="nav">
+  <a class="brand" href="index.html">
+    <img class="logo" src="images/logo.png" alt="IIT Kanpur" onerror="this.outerHTML='<span class=\'mark\'>65</span>'">
+    <span class="txt"><b>Pioneering Research &amp; Innovation Award</b></span>
+  </a>
+  <div class="nav-right">
+    <a class="nav-back" href="index.html">← Back to Campaign</a>
+    <a class="btn" href="index.html#donate">Contribute</a>
+  </div>
+</nav>
+
+<!-- HERO + TARGET -->
+<header class="hero">
+  <div class="wrap">
+    <div data-aos="fade-up">
+      <div class="flourish"><span></span><i></i><span></span></div>
+      <span class="eyebrow">Instituted by the Class of 1965</span>
+      <h1>Wall of <span class="em">Donors</span></h1>
+      <p class="sub">Every name on this wall is a hand passing the torch forward. We gratefully honour the alumni and friends of IIT Kanpur whose generosity sustains the Pioneering Research &amp; Innovation Award.</p>
+    </div>
+
+    <!-- CAMPAIGN TARGET -> BACKEND: GOAL / RAISED / donor count come from
+         the JS constants below. Replace with your API values. -->
+    <div class="targetband" data-aos="fade-up">
+      <div class="top"><span class="lab">Campaign Progress</span><span class="pct"><span id="pctNum">0</span>% of target</span></div>
+      <div class="track"><div class="fill" id="pFill"></div></div>
+      <div class="tstats">
+        <div class="tstat"><div class="n">₹80<span class="s"> L</span></div><div class="l">Raised</div></div>
+        <div class="tstat"><div class="n">₹2.5<span class="s"> Cr</span></div><div class="l">Target</div></div>
+        <div class="tstat"><div class="n" id="donorCount">0</div><div class="l">Donors</div></div>
+      </div>
+    </div>
+
+
+  </div>
+</header>
+
+<!-- WALL -->
+<main class="sec wall">
+  <div class="wrap">
+    <div class="wall-head" data-aos="fade-up">
+      <h2>Our <span class="em">Donors</span></h2>
+      <span class="cnt" id="wallCnt"></span>
+    </div>
+    <hr class="wall-rule">
+    <div class="plaques" id="wallRoot"><!-- donor plaques rendered by JS --></div>
+    <p class="noresults" id="noResults">Donor names will appear here soon.</p>
+    <p class="anonline" id="anonLine" data-aos="fade-up">and <b id="anonCount">0</b> generous donors who chose to remain anonymous.</p>
+  </div>
+</main>
+
+<!-- CTA -->
+<section class="finale">
+  <div class="inner" data-aos="fade-up">
+    <h2>Add your name to the <span class="em">wall</span></h2>
+    <p>Every contribution, of any size, helps build a perpetual legacy of research excellence and innovation at IIT Kanpur.</p>
+    <a href="index.html#donate" class="btn btn-cta">Contribute Now <span class="arrow">→</span></a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <a class="brand" href="index.html"><img class="logo" src="images/IITK Logo_White-01.png" alt="IIT Kanpur" loading="lazy" decoding="async" onerror="this.outerHTML='<span class=\'mark\'>65</span>'"><span class="txt"><b>Pioneering Research &amp; Innovation Award</b></span></a>
+        <p class="tag">Created by Alumni. Sustained by Alumni. Inspired by IIT Kanpur's Future.</p>
+      </div>
+      <div>
+        <h4>Contact Us</h4>
+        <p>Office of Dean of Resources &amp; Alumni<br>Faculty Building Annexe, Third Floor<br>IIT Kanpur - 208016, Uttar Pradesh, India</p>
+        <p>Email: <a href="mailto:dean@dora.iitk.ac.in">dean@dora.iitk.ac.in</a></p>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <p><a href="index.html#donate">Contribute</a><br><a href="index.html#faqs">FAQs</a><br><a href="index.html">Campaign Home</a></p>
+        <a class="link" href="https://iitk.ac.in/dora/annualgiving/testimonials/guidebook-donating-iitkfoundation.pdf" target="_blank" rel="noopener">Donation Guidebook (USA) →</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* lightweight reveal */
+  (function(){
+    const els=document.querySelectorAll('[data-aos]');if(!els.length)return;
+    if(window.matchMedia('(prefers-reduced-motion:reduce)').matches){els.forEach(e=>e.classList.add('in-view'));return;}
+    const io=new IntersectionObserver((ents)=>{ents.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in-view');io.unobserve(en.target);}});},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+    els.forEach(e=>io.observe(e));
+  })();
+
+  const animateNumber=(el,target,dur=1500)=>{const start=performance.now();const step=now=>{const t=Math.min((now-start)/dur,1);const e=1-Math.pow(1-t,3);el.textContent=Math.round(target*e);if(t<1)requestAnimationFrame(step);};requestAnimationFrame(step);};
+
+  /* ================================================================
+     CAMPAIGN FIGURES  ->  *** BACKEND INTEGRATION POINT ***
+     Keep these in sync with index.html (or fetch both from the same API).
+     ================================================================ */
+  const GOAL=2.5,RAISED=0.8; // ₹ crore
+  const raisedPct=Math.round(RAISED/GOAL*100);
+  setTimeout(()=>{document.getElementById('pFill').style.width=raisedPct+'%';animateNumber(document.getElementById('pctNum'),raisedPct,1700);},500);
+
+  /* ================================================================
+     DONORS LIST  ->  *** BACKEND INTEGRATION POINT ***
+     The array below is DEMO / PLACEHOLDER DATA so the wall can be
+     designed and reviewed. Replace it with your API response, e.g.:
+        fetch('/api/donors').then(r=>r.json()).then(d=>{renderWall(d);});
+     Donor shape: { name, batch, anonymous }
+       name:  donor's name (shown on the plaque)
+       batch: e.g. 'BT/EE/1965' (shown under the name; optional)
+       anonymous: true -> counted in the anonymous line, never listed.
+     ================================================================ */
+  const DONORS=[
+    {name:'Abhay K. Bhushan',batch:'BT/EE/1965'},
+    {name:'[Donor Name]',batch:'BT/ME/1965'},
+    {name:'[Donor Name]',batch:'BT/CE/1965'},
+    {name:'[Donor Name]',batch:'BT/EE/1972'},
+    {name:'[Donor Name]',batch:'BT/CHE/1982'},
+    {name:'[Donor Name]',batch:'MT/AE/1975'},
+    {name:'[Donor Name]',batch:'BT/CSE/1988'},
+    {name:'[Donor Name]',batch:'BT/EE/1990'},
+    {name:'[Donor Name]',batch:'BT/ME/1992'},
+    {name:'[Donor Name]',batch:'PhD/PHY/1985'},
+    {name:'[Donor Name]',batch:'BT/CSE/1995'},
+    {name:'[Donor Name]',batch:'BT/EE/1996'},
+    {name:'[Donor Name]',batch:'MBA/2001'},
+    {name:'[Donor Name]',batch:'BT/CE/2001'},
+    {name:'[Donor Name]',batch:'BT/ME/2004'},
+    {name:'[Donor Name]',batch:'MT/EE/2006'},
+    {name:'[Donor Name]',batch:'BT/CSE/2008'},
+    {name:'[Donor Name]',batch:'BT/AE/2010'},
+    {name:'[Donor Name]',batch:'PhD/CHE/2012'},
+    {name:'[Donor Name]',batch:'BT/EE/2014'},
+    {name:'[Donor Name]',batch:'BT/ME/2016'},
+    {name:'[Donor Name]',batch:'BT/CSE/2018'},
+    {anonymous:true},{anonymous:true},{anonymous:true},{anonymous:true},
+    {anonymous:true},{anonymous:true},{anonymous:true},{anonymous:true}
+  ];
+
+  const esc=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const wallRoot=document.getElementById('wallRoot');
+  const noResults=document.getElementById('noResults');
+
+  function renderWall(donors){
+    const named=donors.filter(d=>!d.anonymous);
+    const anon=donors.filter(d=>d.anonymous).length;
+    animateNumber(document.getElementById('donorCount'),donors.length,1600);
+    document.getElementById('anonCount').textContent=anon;
+    document.getElementById('anonLine').style.display=anon?'block':'none';
+    wallRoot.innerHTML=named.map(d=>'<div class="plaque"><div class="nm">'+esc(d.name)+'</div>'+(d.batch?'<div class="bt">'+esc(d.batch)+'</div>':'')+'</div>').join('');
+    document.getElementById('wallCnt').textContent=named.length+' donor'+(named.length!==1?'s':'');
+    noResults.style.display=named.length?'none':'block';
+  }
+
+  renderWall(DONORS);
+</script>
+</body>
+</html>
