@@ -94,7 +94,7 @@ img{display:block;max-width:100%}
 .donate .head{text-align:center;max-width:none;margin:0 auto 38px}
 .donate .head h2{margin-top:14px}
 .donate-grid{display:grid;grid-template-columns:1fr;gap:24px;align-items:start}
-.dform{position:relative;overflow:hidden;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 34px 70px -36px rgba(66,30,24,.45);padding:34px 26px 30px}
+.dform{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 34px 70px -36px rgba(66,30,24,.45);padding:34px 26px 30px}
 .dform h3{font-size:1.4rem;font-weight:500}
 .dform .fl{font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--rust);margin:22px 0 10px;display:block}
 .seg{display:flex;flex-wrap:wrap;gap:6px;background:var(--cream-2);padding:5px;border-radius:12px}
@@ -132,7 +132,10 @@ img{display:block;max-width:100%}
 .cdrop-btn .lbl{flex:1;text-align:center;font-weight:600}
 .cdrop-btn .car{color:var(--rust);transition:transform .3s;font-size:.7rem}
 .cdrop.open .cdrop-btn .car{transform:rotate(180deg)}
-.cdrop-list{position:absolute;left:0;right:0;top:calc(100% + 6px);background:var(--paper);border:1.5px solid var(--rust);border-radius:12px;box-shadow:var(--shadow);overflow:hidden;z-index:20;display:none}
+.cdrop-list{position:absolute;left:0;right:0;top:calc(100% + 6px);background:var(--paper);border:1.5px solid var(--rust);border-radius:12px;box-shadow:var(--shadow);overflow:hidden;z-index:20;display:none;max-height:280px;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+.cdrop-list::-webkit-scrollbar{width:6px}
+.cdrop-list::-webkit-scrollbar-thumb{background:var(--rust);border-radius:999px}
+.cdrop-list::-webkit-scrollbar-track{background:var(--cream)}
 .cdrop.open .cdrop-list{display:block}
 .cdrop-list button{width:100%;display:flex;align-items:center;gap:12px;padding:13px 16px;border:none;background:none;cursor:pointer;font-size:.98rem;color:var(--ink);border-bottom:1px solid var(--line);text-align:left;transition:background .2s}
 .cdrop-list button:last-child{border-bottom:none}
@@ -310,7 +313,7 @@ img{display:block;max-width:100%}
 .card .ph{position:relative;aspect-ratio:5/4;overflow:hidden}
 .card .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s;z-index:1}
 .card:hover .ph img{transform:scale(1.04)}
-.card .badge{position:absolute;top:14px;left:14px;z-index:3;background:rgba(66,30,24,.62);backdrop-filter:blur(6px);color:var(--champagne);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;padding:6px 12px;border-radius:999px;border:1px solid rgba(252,226,197,.3)}
+.card .badge{position:absolute;bottom:14px;left:14px;z-index:3;background:rgba(66,30,24,.62);backdrop-filter:blur(6px);color:var(--champagne);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;padding:6px 12px;border-radius:999px;border:1px solid rgba(252,226,197,.3)}
 .card .cb{padding:24px 24px 26px;flex:1;display:flex;flex-direction:column}
 .card h3{font-size:1.4rem;font-weight:500}
 .card .role{font-size:.84rem;color:var(--rust);font-weight:600;margin-top:5px}
@@ -338,6 +341,14 @@ img{display:block;max-width:100%}
 .modal-card .mbody p em{color:var(--rust);font-style:italic}
 .modal-close{position:absolute;top:16px;right:16px;width:40px;height:40px;border-radius:11px;border:1px solid var(--line);background:var(--cream);color:var(--maroon);font-size:1.3rem;cursor:pointer;display:grid;place-items:center;transition:.3s}
 .modal-close:hover{background:var(--champagne);border-color:var(--gold)}
+/* Payment instructions modal */
+#payModal .modal-card{max-width:520px}
+#payModal h3{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:1.4rem}
+.psteps{background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.psteps h4{font-family:'Fraunces';color:var(--maroon);font-size:1.04rem;font-weight:500}
+.psteps ol{margin:10px 0 0;padding-left:20px;font-size:.95rem;color:var(--muted)}
+.psteps li{margin-bottom:7px;line-height:1.5}
+.psteps li:last-child{margin-bottom:0}
 
 /* Finale */
 .finale{position:relative;overflow:hidden;background:#AB4531;color:var(--champagne);padding:66px 0}
@@ -455,6 +466,85 @@ img{display:block;max-width:100%}
 .values .head h2{white-space:nowrap}
 @media(max-width:620px){.vision-text h2,.values .head h2{white-space:normal}.vision-text h2{text-align:center}.dir-copy .dquote{font-size:2.2rem}}
 @media(max-width:480px){.fieldrow{grid-template-columns:1fr}.dform{padding:26px 18px 24px}.amts3{gap:7px}.amt{padding:13px 6px;font-size:.92rem}}
+
+/* ================================================================
+   RESPONSIVENESS PASS - mobile / tablet / small-screen refinements
+   ================================================================ */
+/* hard guard against horizontal scroll on all devices */
+html,body{overflow-x:hidden;max-width:100%}
+
+/* Tablet & below */
+@media(max-width:768px){
+  /* iOS Safari zooms into inputs under 16px - keep all form text at 16px */
+  .field input,.field select,.other input{font-size:16px}
+  .other input{padding:14px 0}
+  /* modals: tighter padding, comfortable on small screens */
+  .modal{padding:12px}
+  .modal-card{max-height:92vh}
+  .modal-card .top{padding:24px 20px 0}
+  .modal-card .mdivider{margin:18px 20px}
+  .modal-card .mbody{padding:0 20px 24px}
+  .modal-card h3{font-size:1.35rem}
+  .modal-close{top:12px;right:12px;width:36px;height:36px}
+  #payModal h3{font-size:1.2rem}
+  /* donation summary & progress header can wrap instead of squeezing */
+  .dsummary{flex-wrap:wrap;padding:16px 18px}
+  .progress .top{flex-wrap:wrap}
+  /* director quote card */
+  .dir-copy{padding:28px 22px}
+  /* awardee tabs fit narrow screens */
+  .tabs{max-width:100%}
+  .tab{padding:10px 14px;font-size:.78rem}
+  /* qbanner breathing room */
+  .qbanner .inner{padding:56px 20px;gap:20px}
+}
+
+/* Phones */
+@media(max-width:480px){
+  /* nav: long award title wraps neatly beside logo + hamburger */
+  .nav{padding:12px 14px}
+  .nav.scrolled{padding:10px 14px}
+  .brand{min-width:0;flex:1;margin-right:8px;gap:9px}
+  .brand .txt{min-width:0}
+  .brand .txt b{font-size:.8rem;line-height:1.2;white-space:normal}
+  .brand .logo{height:34px}
+  /* donation form */
+  .dform .dh h3{font-size:1.45rem}
+  .cdrop-btn{padding:12px 14px;font-size:.95rem}
+  .cdrop-list{max-height:250px}
+  .cdrop-list button{padding:12px 14px;font-size:.92rem}
+  .seg button{font-size:.78rem;padding:10px 6px;min-width:0}
+  .dsummary .sa{font-size:1.4rem}
+  .dsummary .sbadge{font-size:.76rem;padding:7px 13px}
+  .dnav{gap:8px}
+  .dnav .btn{padding:15px 12px;font-size:.88rem}
+  .pstats{gap:12px}
+  .pstat .n{font-size:1.5rem}
+  .infonote{padding:18px 16px}
+  /* payment modal proceed button */
+  #payModal .btn{padding:15px 18px;font-size:.92rem}
+  /* awardee cards */
+  .card .cb{padding:20px 18px 22px}
+  .card h3{font-size:1.25rem}
+  .card p{font-size:.92rem}
+  /* finale */
+  .finale{padding:52px 0}
+  .finale .eyebrow{font-size:1.1rem;letter-spacing:.14em}
+  /* footer */
+  .foot{padding:44px 0 calc(56px + env(safe-area-inset-bottom))}
+}
+
+/* Very small phones (<=360px) */
+@media(max-width:360px){
+  .amt{font-size:.82rem;padding:11px 3px}
+  .amts3{gap:5px}
+  .cdrop-btn .flag{font-size:1.05rem}
+  .brand .txt b{font-size:.74rem}
+  .hero-title{font-size:1.6rem}
+  .h-sec{font-size:1.6rem}
+  .mbar{left:8px;right:8px;padding:8px 8px 8px 14px;padding-bottom:calc(8px + env(safe-area-inset-bottom))}
+  .mbar .btn{padding:12px 16px;font-size:.82rem}
+}
 [data-aos]{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
 [data-aos="fade"]{transform:none}
 [data-aos].in-view{opacity:1;transform:none}
@@ -533,12 +623,14 @@ img{display:block;max-width:100%}
           <div class="cdrop" id="cdrop">
             <button type="button" class="cdrop-btn" id="cdropBtn"><span class="flag" id="cFlag">🇮🇳</span><span class="lbl" id="cLbl">India</span><span class="car">▼</span></button>
             <div class="cdrop-list" id="cdropList">
-              <button type="button" data-c="India" data-f="🇮🇳" data-cur="₹"><span class="flag">🇮🇳</span> India</button>
-              <button type="button" data-c="United States" data-f="🇺🇸" data-cur="$"><span class="flag">🇺🇸</span> United States</button>
-              <button type="button" data-c="Australia" data-f="🇦🇺" data-cur="$"><span class="flag">🇦🇺</span> Australia</button>
-              <button type="button" data-c="United Kingdom" data-f="🇬🇧" data-cur="£"><span class="flag">🇬🇧</span> United Kingdom</button>
-              <button type="button" data-c="Canada" data-f="🇨🇦" data-cur="$"><span class="flag">🇨🇦</span> Canada</button>
-              <button type="button" data-c="Germany" data-f="🇩🇪" data-cur="€"><span class="flag">🇩🇪</span> Germany</button>
+              <button type="button" data-k="india" data-c="India" data-f="🇮🇳" data-cur="₹"><span class="flag">🇮🇳</span> India</button>
+              <button type="button" data-k="usa" data-c="United States" data-f="🇺🇸" data-cur="$"><span class="flag">🇺🇸</span> United States</button>
+              <button type="button" data-k="australia" data-c="Australia" data-f="🇦🇺" data-cur="$"><span class="flag">🇦🇺</span> Australia</button>
+              <button type="button" data-k="uk" data-c="United Kingdom" data-f="🇬🇧" data-cur="£"><span class="flag">🇬🇧</span> United Kingdom</button>
+              <button type="button" data-k="canada" data-c="Canada" data-f="🇨🇦" data-cur="$"><span class="flag">🇨🇦</span> Canada</button>
+              <button type="button" data-k="germany" data-c="Germany" data-f="🇩🇪" data-cur="€"><span class="flag">🇩🇪</span> Germany</button>
+              <button type="button" data-k="belgium" data-c="Belgium" data-f="🇧🇪" data-cur="€"><span class="flag">🇧🇪</span> Belgium</button>
+              <button type="button" data-k="other" data-c="Other Country" data-f="🌍" data-cur="$"><span class="flag">🌍</span> Other Country</button>
             </div>
           </div>
           <div class="seg" id="freqSeg">
@@ -551,8 +643,7 @@ img{display:block;max-width:100%}
             <button class="amt" data-v="10000">₹10,000</button>
           </div>
           <div class="other" id="otherWrap"><span class="cur" id="otherCur">₹</span><input type="number" id="customAmt" placeholder="Other" min="100" /></div>
-          <div class="fnote"><b>Note:</b> Your donation will go towards supporting students' most urgent requirements and the Pioneering Research &amp; Innovation Award.</div>
-          <div class="dnav"><button class="btn" id="toStep2">Next <span class="arrow">→</span></button></div>
+          <div class="dnav"><button class="btn" id="toStep2"><span id="toStep2Lbl">Next</span> <span class="arrow">→</span></button></div>
           <div class="ways-row">
             <a class="ways-link" href="ways-to-contribute.html">Other Ways to Contribute <span>→</span></a>
             <a class="ways-link" href="https://iitk.ac.in/dora/annualgiving/testimonials/guidebook-donating-iitkfoundation.pdf" target="_blank" rel="noopener">USA Donation Guidebook <span>→</span></a>
@@ -624,6 +715,28 @@ img{display:block;max-width:100%}
   </div>
 </section>
 
+<!-- DIRECTOR -->
+<section class="sec director" id="director">
+  <div class="wrap">
+    <div class="head" data-aos="fade-up">
+      <h2 class="h-sec">A message from the <span class="em">director</span></h2>
+    </div>
+    <div class="grid">
+      <div class="vid" id="dirVid" data-yt="QTZO044s02s" data-aos="fade-up">
+        <img class="vthumb" src="https://img.youtube.com/vi/QTZO044s02s/maxresdefault.jpg" alt="A message from the Director" loading="lazy" decoding="async" onerror="this.src='https://img.youtube.com/vi/QTZO044s02s/hqdefault.jpg'">
+        <div class="vshade"></div>
+        <button class="vplay" id="dirPlay" aria-label="Play the Director's message"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span><span>Watch the message</span></button>
+      </div>
+      <div class="dir-copy" data-aos="fade-up" data-aos-delay="80">
+        <span class="dquote">&ldquo;</span>
+        <blockquote class="bigq">Together with our alumni, we can build one of India's most prestigious recognitions for research and innovation.</blockquote>
+        <hr class="q-divider" />
+        <div class="attrib"><b>Prof. Manindra Agrawal</b><span>Director, IIT Kanpur</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- VISION -->
 <section class="sec vision" id="vision">
   <div class="wrap">
@@ -647,28 +760,6 @@ img{display:block;max-width:100%}
         <span class="ql3">to the generations that will shape its <em>future.</em></span>
       </div>
       <div class="src">- Class of 1965</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- DIRECTOR -->
-<section class="sec director" id="director">
-  <div class="wrap">
-    <div class="head" data-aos="fade-up">
-      <h2 class="h-sec">A message from the <span class="em">director</span></h2>
-    </div>
-    <div class="grid">
-      <div class="vid" id="dirVid" data-yt="QTZO044s02s" data-aos="fade-up">
-        <img class="vthumb" src="https://img.youtube.com/vi/QTZO044s02s/maxresdefault.jpg" alt="A message from the Director" loading="lazy" decoding="async" onerror="this.src='https://img.youtube.com/vi/QTZO044s02s/hqdefault.jpg'">
-        <div class="vshade"></div>
-        <button class="vplay" id="dirPlay" aria-label="Play the Director's message"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span><span>Watch the message</span></button>
-      </div>
-      <div class="dir-copy" data-aos="fade-up" data-aos-delay="80">
-        <span class="dquote">&ldquo;</span>
-        <blockquote class="bigq">Together with our alumni, we can build one of India's most prestigious recognitions for research and innovation.</blockquote>
-        <hr class="q-divider" />
-        <div class="attrib"><b>Prof. Manindra Agrawal</b><span>Director, IIT Kanpur</span></div>
       </div>
     </div>
   </div>
@@ -853,6 +944,23 @@ img{display:block;max-width:100%}
   </div>
 </div>
 
+<!-- PAYMENT INSTRUCTIONS MODAL (international donors) -->
+<div class="modal" id="payModal" aria-hidden="true">
+  <div class="modal-card" role="dialog" aria-modal="true">
+    <button class="modal-close" id="payClose" aria-label="Close">×</button>
+    <div class="top">
+      <div class="mbadge">Payment Instructions</div>
+      <h3 id="pmTitle"><span id="pmFlag">🌍</span> <span id="pmCountry"></span> <span id="pmFreq"></span></h3>
+    </div>
+    <div class="mdivider"></div>
+    <div class="mbody">
+      <div id="pmSteps"></div>
+      <div class="fnote"><b>Note:</b> You will be redirected to our secure payment partner's website to complete your donation.</div>
+      <a href="#" id="pmProceed" class="btn" target="_blank" rel="noopener" style="width:100%;margin-top:18px">Proceed to Payment <span class="arrow">→</span></a>
+    </div>
+  </div>
+</div>
+
 <!-- FOOTER -->
 <footer class="foot">
   <div class="wrap">
@@ -968,8 +1076,64 @@ img{display:block;max-width:100%}
      ================================================================ */
   (function(){
     const form=document.querySelector('.dform');if(!form)return;
-    const state={country:'India',cur:'₹',freq:'One-time',amount:50000,affiliation:''};
+    const state={country:'India',key:'india',flag:'🇮🇳',cur:'₹',freq:'One-time',amount:50000,affiliation:''};
     const fmt=n=>state.cur+Number(n).toLocaleString('en-IN');
+
+    /* ---- PAYMENT PARTNER LINKS (international donors) ----
+       Same partner links used on the Annual Giving page.
+       BACKEND: swap these URLs if the award gets its own fund pages. */
+    const paymentLinks={
+      'usa':{'monthly':'https://www.zeffy.com/en-US/donation-form/bb809edf-3a48-4fec-931b-18fcbee7da40','one-time':'https://iitk.ac.in/dora/givingback/donate-now-usd/Annual-Gift-Programme'},
+      'uk':{'monthly':'https://www.justgiving.com/charity/eff-iitkanpur','one-time':'https://www.justgiving.com/charity/eff-iitkanpur'},
+      'australia':{'monthly':'https://myriadau.fcsuite.com/erp/donate/create/fund?funit_id=1128','one-time':'https://myriadau.fcsuite.com/erp/donate/create/fund?funit_id=1128'},
+      'belgium':{'monthly':'https://donate.kbs-frb.be/actions/EFF-IITKanpurUniversity','one-time':'https://donate.kbs-frb.be/actions/EFF-IITKanpurUniversity'},
+      'canada':{'monthly':'https://www.canadahelps.org/en/charities/myriad-canada/campaign/h502-support-education-research-and-access-to-healthcare-with-the-iit-kanpur/#create-a-campaign','one-time':'https://www.myriadcanada.org/en/project/support-education-research-healthcare-iit-kanpur/'},
+      'germany':{'monthly':'https://donate.transnationalgiving.eu/germany/IITKanpur','one-time':'https://donate.transnationalgiving.eu/germany/IITKanpur'},
+      'other':{'monthly':'https://iitk.ac.in/dora/givingback/other-country/Annual-Gift-Programme','one-time':'https://iitk.ac.in/dora/givingback/other-country/Annual-Gift-Programme'}
+    };
+    const getLink=(key,freq)=>{const t=freq==='Monthly'?'monthly':'one-time';return (paymentLinks[key]&&paymentLinks[key][t])||paymentLinks['other'][t];};
+
+    /* ---- Payment instructions modal (monthly, non-India) ---- */
+    const payModal=document.getElementById('payModal');
+    const stepsFor=(key,freq)=>{
+      const monthly=freq==='Monthly';
+      switch(key){
+        case 'usa':return monthly
+          ?'<div class="psteps"><h4>Steps:</h4><ol><li>Click "Proceed to Payment" button</li><li>On Zeffy page, select monthly donation option</li><li>Enter amount and complete payment</li></ol></div>'
+          :'<div class="psteps"><h4>Steps:</h4><ol><li>Enter amount: $15 / $30 / $60 / $120.</li><li>Enter your details and Complete Payment</li></ol></div>';
+        case 'uk':return '<div class="psteps"><h4>Steps:</h4><ol><li>'+(monthly?'Select "Monthly" Option':'Select Donation Type')+'</li><li>Enter amount: £30 / £50 / £150 / £200.</li><li>Enter your details and Complete Payment</li></ol></div>';
+        case 'australia':return '<div class="psteps"><h4>Steps:</h4><ol><li>'+(monthly?'Select "Recurring Donation Amount"':'Select Donation Type')+'</li><li>Enter amount'+(monthly?' and End date':'')+'.</li><li>Enter your details and Complete Payment</li></ol></div>';
+        case 'canada':return monthly
+          ?'<div class="psteps"><h4>Steps:</h4><ol><li>Click "Proceed to Payment" button</li><li>On CanadaHelps page, create a campaign for monthly donation</li><li>Set up your recurring payment</li></ol></div>'
+          :'<div class="psteps"><h4>Steps:</h4><ol><li>Select Donation Type</li><li>Enter amount</li><li>Enter your details and Complete Payment</li></ol></div>';
+        case 'germany':return '<div class="psteps"><h4>Steps:</h4><ol><li>'+(monthly?'Select "Donate every month"':'Select Donation Type')+'</li><li>Enter amount: €50 / €80 / €100 / €250.</li><li>Enter your details and Complete Payment</li></ol></div>';
+        case 'belgium':return '<div class="psteps"><h4>Steps:</h4><ol><li>'+(monthly?'Select "Don Mensuel/ I Donate every month"':'Select Donation Type')+'</li><li>Enter Amount</li><li>Enter your details and Complete Payment</li></ol></div>';
+        default:return '<div class="psteps"><h4>Steps:</h4><ol><li>Click "Proceed to Payment" button</li><li>Complete your donation on our secure payment partner\'s website</li></ol></div>';
+      }
+    };
+    const openPayModal=()=>{
+      document.getElementById('pmFlag').textContent=state.flag;
+      document.getElementById('pmCountry').textContent=state.country;
+      document.getElementById('pmFreq').textContent=state.freq==='Monthly'?'Monthly':'';
+      document.getElementById('pmSteps').innerHTML=stepsFor(state.key,state.freq);
+      document.getElementById('pmProceed').href=getLink(state.key,state.freq);
+      payModal.classList.add('open');payModal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';
+    };
+    const closePayModal=()=>{payModal.classList.remove('open');payModal.setAttribute('aria-hidden','true');document.body.style.overflow='';};
+    document.getElementById('payClose').addEventListener('click',closePayModal);
+    payModal.addEventListener('click',e=>{if(e.target===payModal)closePayModal();});
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'&&payModal.classList.contains('open'))closePayModal();});
+
+    /* ---- India vs international UI on step 1 ---- */
+    const amtGrid=document.getElementById('amtGrid'),otherWrapEl=document.getElementById('otherWrap');
+    const toStep2Lbl=document.getElementById('toStep2Lbl');
+    const applyCountryUI=()=>{
+      const isIndia=state.key==='india';
+      amtGrid.style.display=isIndia?'grid':'none';
+      otherWrapEl.style.display=isIndia?'flex':'none';
+      toStep2Lbl.textContent=isIndia?'Next':'Proceed to Payment';
+    };
+
     // country dropdown
     const cdrop=document.getElementById('cdrop'),cBtn=document.getElementById('cdropBtn');
     const adrop=document.getElementById('adrop'),aBtn=document.getElementById('adropBtn'),aLbl=document.getElementById('aLbl');
@@ -977,12 +1141,13 @@ img{display:block;max-width:100%}
     aBtn.addEventListener('click',e=>{e.stopPropagation();cdrop.classList.remove('open');adrop.classList.toggle('open');});
     document.addEventListener('click',()=>{cdrop.classList.remove('open');adrop.classList.remove('open');});
     document.querySelectorAll('#cdropList button').forEach(b=>b.addEventListener('click',()=>{
-      state.country=b.dataset.c;state.cur=b.dataset.cur;
+      state.country=b.dataset.c;state.key=b.dataset.k;state.flag=b.dataset.f;state.cur=b.dataset.cur;
       document.getElementById('cFlag').textContent=b.dataset.f;
       document.getElementById('cLbl').textContent=b.dataset.c;
       document.getElementById('otherCur').textContent=state.cur;
       document.querySelectorAll('#amtGrid .amt').forEach(a=>{a.textContent=state.cur+Number(a.dataset.v).toLocaleString('en-IN');});
       cdrop.classList.remove('open');
+      applyCountryUI();
     }));
     // affiliation dropdown
     document.querySelectorAll('#adropList button').forEach(b=>b.addEventListener('click',()=>{
@@ -997,6 +1162,12 @@ img{display:block;max-width:100%}
     // steps
     const show=n=>{document.querySelectorAll('.dstep').forEach(s=>s.classList.toggle('active',s.dataset.step==String(n)));form.scrollIntoView({behavior:'smooth',block:'nearest'});};
     document.getElementById('toStep2').addEventListener('click',()=>{
+      if(state.key!=='india'){
+        // International donors -> secure payment partner for their country
+        if(state.freq==='Monthly'){openPayModal();}
+        else{window.open(getLink(state.key,state.freq),'_blank');}
+        return;
+      }
       if(!state.amount||state.amount<1){alert('Please select or enter an amount.');return;}
       document.getElementById('sumAmt').textContent=fmt(state.amount);
       document.getElementById('sumFreq').textContent=state.freq;
@@ -1008,6 +1179,7 @@ img{display:block;max-width:100%}
        and redirect the user to the payment page. The alert below is a
        placeholder - replace it with the real submission code. ---------- */
     document.getElementById('payNow').addEventListener('click',()=>{
+      if(state.key!=='india'){alert('Please use the payment options for your country from the previous step.');return;}
       const name=document.getElementById('dn').value.trim(),email=document.getElementById('de').value.trim(),aff=state.affiliation;
       if(!name||!email||!aff){alert('Please fill your name, email and affiliation.');return;}
 
